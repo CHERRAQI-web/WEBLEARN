@@ -1,0 +1,270 @@
+# -----------------------------
+# Core WordPress files
+# -----------------------------
+wp-config.php
+wp-content/upgrade/
+wp-content/backups/
+wp-content/aiowps_backups/
+wp-content/wflogs/
+wp-content/advanced-cache.php
+wp-content/object-cache.php
+wp-content/db.php
+wp-content/sunrise.php
+
+# -----------------------------
+# Cache & Temp
+# -----------------------------
+wp-content/cache/
+wp-content/plugins/*/cache/
+wp-content/plugins/*/tmp/
+wp-content/plugins/*/dist/
+wp-content/plugins/*/build/
+wp-content/themes/*/cache/
+wp-content/themes/*/tmp/
+wp-content/themes/*/dist/
+wp-content/themes/*/build/
+*.log
+*.tmp
+
+# -----------------------------
+# CSS / JS compilés ou minifiés
+# -----------------------------
+*.min.css
+*.min.js
+*.map
+*.sass-cache/
+*.scssc
+
+# -----------------------------
+# Uploads (optionnel)
+# -----------------------------
+wp-content/uploads/
+
+# -----------------------------
+# Languages
+# -----------------------------
+wp-content/languages/
+wp-content/languages/plugins/
+wp-content/languages/themes/
+
+# -----------------------------
+# Local environment files
+# -----------------------------
+.env
+.local
+*.local
+
+# -----------------------------
+# System files
+# -----------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -----------------------------
+# IDE / Editor files
+# -----------------------------
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# -----------------------------
+# Other unnecessary files
+# -----------------------------
+*.bak
+*.swp
+*.orig
+*.sql
+
+
+
+# Ignore le dossier public lui-même, mais pas son contenu
+/public/
+
+# Fichiers WordPress
+/wp-config.php
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/themes/theme-name/node_modules/
+/wp-content/themes/theme-name/dist/
+
+# Fichiers de développement et de configuration
+.env
+.DS_Store
+Thumbs.db
+npm-debug.log*
+.idea/
+.vscode/
+
+# Ignorer les fichiers temporaires
+*~
+*.swp
+
+app/public/.htaccess
+app/public/index.php
+app/public/readme.html
+app/public/wp-activate.php
+app/public/wp-admin/about.php
+app/public/wp-admin/admin-ajax.php
+app/public/wp-admin/admin-footer.php
+app/public/wp-admin/admin-functions.php
+app/public/wp-admin/admin-header.php
+app/public/wp-admin/admin-post.php
+app/public/wp-admin/admin.php
+app/public/readme.html
+app/public/wp-activate.php
+app/public/wp-comments-post.php
+app/public/wp-blog-header.php
+app/public/wp-cron.php
+app/public/wp-includes/ID3/getid3.lib.php
+app/public/wp-includes/ID3/getid3.php
+app/public/wp-includes/ID3/license.txt
+
+
+
+
+app/public/wp-admin/async-upload.php
+app/public/wp-admin/authorize-application.php
+app/public/wp-admin/comment.php
+app/public/wp-admin/contribute.php
+app/public/wp-admin/credits.php', LF will be replaced by CRLF the next time Git touches it
+app/public/wp-admin/css/about-rtl.css', LF will be replaced by CRLF the next time Git touches it
+app/public/wp-admin/css/about.css
+app/public/wp-admin/css/admin-menu-rtl.css
+app/public/wp-admin/css/admin-menu.css
+app/public/wp-admin/css/code-editor-rtl.css
+app/public/wp-admin/css/code-editor.css
+app/public/wp-admin/css/color-picker-rtl.css
+app/public/wp-admin/css/color-picker.css
+app/public/wp-admin/css/colors/_admin.scss
+app/public/wp-admin/css/colors/_mixins.scss
+app/public/wp-admin/css/colors/_variables.scss
+app/public/wp-admin/css/colors/blue/colors-rtl.css
+app/public/wp-admin/css/colors/blue/colors.css
+app/public/wp-admin/css/colors/blue/colors.scss
+app/public/wp-admin/css/colors/coffee/colors-rtl.css
+
+
+app/public/wp-admin/credits.php
+app/public/wp-admin/css/about-rtl.css
+app/public/wp-admin/css/colors/coffee/colors.css
+app/public/wp-admin/css/colors/coffee/colors.scss
+app/public/wp-admin/css/colors/ectoplasm/colors-rtl.css
+app/public/wp-admin/css/colors/ectoplasm/colors.css
+app/public/wp-admin/css/colors/ectoplasm/colors.scss
+app/public/wp-admin/css/colors/light/colors-rtl.css
+app/public/wp-admin/css/colors/light/colors.css
+app/public/wp-admin/css/colors/light/colors.scss
+app/public/wp-admin/css/colors/midnight/colors-rtl.css
+app/public/wp-admin/css/colors/midnight/colors.css
+app/public/wp-admin/css/colors/midnight/colors.scss
+app/public/wp-admin/css/colors/modern/colors-rtl.css
+app/public/wp-admin/css/colors/modern/colors.css
+app/public/wp-admin/css/colors/modern/colors.scss
+app/public/wp-admin/css/colors/ocean/colors-rtl.css
+app/public/wp-admin/css/colors/ocean/colors.css
+app/public/wp-admin/css/colors/ocean/colors.scss
+app/public/wp-admin/css/colors/sunrise/colors-rtl.css
+app/public/wp-admin/css/colors/sunrise/colors.css
+app/public/wp-admin/css/colors/sunrise/colors.scss
+app/public/wp-admin/css/common-rtl.css
+app/public/wp-admin/css/common.css
+app/public/wp-admin/css/customize-controls-rtl.css
+app/public/wp-admin/css/customize-controls.css
+app/public/wp-admin/css/customize-nav-menus-rtl.css
+app/public/wp-admin/css/customize-nav-menus.css
+app/public/wp-admin/css/customize-widgets-rtl.css
+
+
+
+
+
+app/public/wp-admin/css/customize-widgets.css
+app/public/wp-admin/css/dashboard-rtl.css
+app/public/wp-admin/css/dashboard.css
+app/public/wp-admin/css/deprecated-media-rtl.css
+app/public/wp-admin/css/deprecated-media.css
+app/public/wp-admin/css/edit-rtl.css
+app/public/wp-admin/css/edit.css
+app/public/wp-admin/css/farbtastic-rtl.css
+app/public/wp-admin/css/farbtastic.css
+app/public/wp-admin/css/forms-rtl.css
+app/public/wp-admin/css/forms.css
+app/public/wp-admin/css/install-rtl.css
+app/public/wp-admin/css/install.css
+app/public/wp-admin/css/l10n-rtl.css
+app/public/wp-admin/css/l10n.css
+app/public/wp-admin/css/list-tables-rtl.css
+app/public/wp-admin/css/list-tables.css
+app/public/wp-admin/css/login-rtl.css
+app/public/wp-admin/css/login.css
+app/public/wp-admin/css/media-rtl.css
+app/public/wp-admin/css/media.css
+app/public/wp-admin/css/nav-menus-rtl.css
+app/public/wp-admin/css/nav-menus.css
+app/public/wp-admin/css/revisions-rtl.css
+app/public/wp-admin/css/revisions.css
+app/public/wp-admin/css/site-health-rtl.css
+app/public/wp-admin/css/site-health.css
+app/public/wp-admin/css/site-icon-rtl.css
+app/public/wp-admin/css/site-icon.css
+app/public/wp-admin/css/themes-rtl.css
+app/public/wp-admin/css/themes.css
+app/public/wp-admin/css/widgets-rtl.css
+app/public/wp-admin/css/widgets.css
+app/public/wp-admin/css/wp-admin-rtl.css
+app/public/wp-admin/css/wp-admin.css
+app/public/wp-admin/custom-background.php
+app/public/wp-admin/custom-header.php
+app/public/wp-admin/customize.php
+app/public/wp-admin/edit-comments.php
+app/public/wp-admin/edit-form-advanced.php
+app/public/wp-admin/edit-form-blocks.php
+app/public/wp-admin/edit-form-comment.php
+app/public/wp-admin/edit-link-form.php
+app/public/wp-admin/edit-tag-form.php
+app/public/wp-admin/edit-tags.php
+app/public/wp-admin/edit.php
+app/public/wp-admin/erase-personal-data.php
+app/public/wp-admin/export-personal-data.php
+app/public/wp-admin/export.php
+app/public/wp-admin/freedoms.php
+app/public/wp-admin/images/about-release-badge.svg
+app/public/wp-admin/images/contribute-code.svg
+app/public/wp-admin/images/contribute-main.svg
+app/public/wp-admin/images/contribute-no-code.svg
+app/public/wp-admin/images/dashboard-background.svg
+app/public/wp-includes/IXR/
+app/public/wp-admin/
+app/public/wp-admin/includes/
+app/public/wp-content/
+app/public/wp-includes/Requests/
+app/public/wp-includes/IXR/
+app/public/wp-includes/
+app/public/wp-includes/ID3/
+app/public/wp-links-opml.php
+
+
+
+
+app/public/wp-links-opml.php
+app/public/wp-load.php
+app/public/wp-login.php
+app/public/wp-mail.php
+app/public/wp-settings.php
+app/public/wp-signup.php
+app/public/wp-trackback.php
+app/public/xmlrpc.php
+conf/mysql/my.cnf.hbs
+conf/nginx/includes/gzip.conf.hbs
+conf/nginx/includes/mime-types.conf.hbs
+conf/nginx/includes/restrictions.conf.hbs
+conf/nginx/includes/wordpress-multi.conf.hbs
+conf/nginx/includes/wordpress-single.conf.hbs
+conf/nginx/nginx.conf.hbs
+conf/nginx/site.conf.hbs
+conf/php/php-fpm.conf.hbs
+conf/php/php-fpm.d/www.conf.hbs
+conf/php/php.ini.hbs
+
