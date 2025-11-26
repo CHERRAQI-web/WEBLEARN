@@ -1,0 +1,1028 @@
+-- MySQL dump 10.13  Distrib 8.0.16, for Win64 (x86_64)
+--
+-- Host: ::1    Database: local
+-- ------------------------------------------------------
+-- Server version	8.0.16
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8mb4 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `wp_actionscheduler_actions`
+--
+
+DROP TABLE IF EXISTS `wp_actionscheduler_actions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_actionscheduler_actions` (
+  `action_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `hook` varchar(191) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `scheduled_date_gmt` datetime DEFAULT '0000-00-00 00:00:00',
+  `scheduled_date_local` datetime DEFAULT '0000-00-00 00:00:00',
+  `priority` tinyint(3) unsigned NOT NULL DEFAULT '10',
+  `args` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `schedule` longtext COLLATE utf8mb4_unicode_520_ci,
+  `group_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `attempts` int(11) NOT NULL DEFAULT '0',
+  `last_attempt_gmt` datetime DEFAULT '0000-00-00 00:00:00',
+  `last_attempt_local` datetime DEFAULT '0000-00-00 00:00:00',
+  `claim_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `extended_args` varchar(8000) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  PRIMARY KEY (`action_id`),
+  KEY `hook_status_scheduled_date_gmt` (`hook`(163),`status`,`scheduled_date_gmt`),
+  KEY `status_scheduled_date_gmt` (`status`,`scheduled_date_gmt`),
+  KEY `scheduled_date_gmt` (`scheduled_date_gmt`),
+  KEY `args` (`args`),
+  KEY `group_id` (`group_id`),
+  KEY `last_attempt_gmt` (`last_attempt_gmt`),
+  KEY `claim_id_status_scheduled_date_gmt` (`claim_id`,`status`,`scheduled_date_gmt`)
+) ENGINE=InnoDB AUTO_INCREMENT=2014 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_actionscheduler_actions`
+--
+
+LOCK TABLES `wp_actionscheduler_actions` WRITE;
+/*!40000 ALTER TABLE `wp_actionscheduler_actions` DISABLE KEYS */;
+INSERT INTO `wp_actionscheduler_actions` VALUES (2001,'action_scheduler/migration_hook','complete','2025-03-10 15:50:20','2025-03-10 15:50:20',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1741621820;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1741621820;}',1,1,'2025-03-10 15:51:11','2025-03-10 15:51:11',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (2002,'wpforms_process_forms_locator_scan','complete','2025-03-10 15:51:48','2025-03-10 15:51:48',10,'{\"tasks_meta_id\":1}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1741621908;s:18:\"\0*\0first_timestamp\";i:1741621908;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1741621908;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',2,1,'2025-03-10 15:51:55','2025-03-10 15:51:55',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (2003,'wpforms_process_purge_spam','complete','2025-03-10 15:51:49','2025-03-10 15:51:49',10,'{\"tasks_meta_id\":2}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1741621909;s:18:\"\0*\0first_timestamp\";i:1741621909;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1741621909;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',2,1,'2025-03-10 15:51:57','2025-03-10 15:51:57',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (2004,'wpforms_email_summaries_fetch_info_blocks','complete','2025-03-08 10:38:57','2025-03-08 10:38:57',10,'{\"tasks_meta_id\":null}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1741430337;s:18:\"\0*\0first_timestamp\";i:1741430337;s:13:\"\0*\0recurrence\";i:604800;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1741430337;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:604800;}',2,1,'2025-03-10 15:51:53','2025-03-10 15:51:53',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (2005,'wpforms_admin_addons_cache_update','pending','2025-03-17 15:51:50','2025-03-17 15:51:50',10,'{\"tasks_meta_id\":3}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1742226710;s:18:\"\0*\0first_timestamp\";i:1742226710;s:13:\"\0*\0recurrence\";i:604800;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1742226710;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:604800;}',2,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (2006,'wpforms_admin_builder_templates_cache_update','pending','2025-03-17 15:51:50','2025-03-17 15:51:50',10,'{\"tasks_meta_id\":4}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1742226710;s:18:\"\0*\0first_timestamp\";i:1742226710;s:13:\"\0*\0recurrence\";i:604800;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1742226710;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:604800;}',2,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (2007,'wpforms_email_summaries_fetch_info_blocks','pending','2025-03-17 15:51:53','2025-03-17 15:51:53',10,'{\"tasks_meta_id\":null}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1742226713;s:18:\"\0*\0first_timestamp\";i:1741430337;s:13:\"\0*\0recurrence\";i:604800;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1742226713;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:604800;}',2,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (2008,'wpforms_process_forms_locator_scan','pending','2025-03-11 15:51:55','2025-03-11 15:51:55',10,'{\"tasks_meta_id\":1}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1741708315;s:18:\"\0*\0first_timestamp\";i:1741621908;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1741708315;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',2,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (2009,'wpforms_process_purge_spam','pending','2025-03-11 15:51:57','2025-03-11 15:51:57',10,'{\"tasks_meta_id\":2}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1741708317;s:18:\"\0*\0first_timestamp\";i:1741621909;s:13:\"\0*\0recurrence\";i:86400;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1741708317;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:86400;}',2,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (2010,'wpforms_admin_notifications_update','complete','2025-03-10 15:56:12','2025-03-10 15:56:12',10,'{\"tasks_meta_id\":5}','O:28:\"ActionScheduler_NullSchedule\":0:{}',2,1,'2025-03-10 15:57:07','2025-03-10 15:57:07',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (2011,'action_scheduler/migration_hook','complete','2025-03-10 16:27:27','2025-03-10 16:27:27',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1741624047;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1741624047;}',1,1,'2025-03-10 16:27:42','2025-03-10 16:27:42',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (2012,'wpforms_builder_help_cache_update','pending','2025-03-17 16:56:35','2025-03-17 16:56:35',10,'{\"tasks_meta_id\":6}','O:32:\"ActionScheduler_IntervalSchedule\":5:{s:22:\"\0*\0scheduled_timestamp\";i:1742230595;s:18:\"\0*\0first_timestamp\";i:1742230595;s:13:\"\0*\0recurrence\";i:604800;s:49:\"\0ActionScheduler_IntervalSchedule\0start_timestamp\";i:1742230595;s:53:\"\0ActionScheduler_IntervalSchedule\0interval_in_seconds\";i:604800;}',2,0,'0000-00-00 00:00:00','0000-00-00 00:00:00',0,NULL);
+INSERT INTO `wp_actionscheduler_actions` VALUES (2013,'action_scheduler/migration_hook','complete','2025-03-10 17:49:03','2025-03-10 17:49:03',10,'[]','O:30:\"ActionScheduler_SimpleSchedule\":2:{s:22:\"\0*\0scheduled_timestamp\";i:1741628943;s:41:\"\0ActionScheduler_SimpleSchedule\0timestamp\";i:1741628943;}',1,1,'2025-03-10 17:49:18','2025-03-10 17:49:18',0,NULL);
+/*!40000 ALTER TABLE `wp_actionscheduler_actions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_actionscheduler_claims`
+--
+
+DROP TABLE IF EXISTS `wp_actionscheduler_claims`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_actionscheduler_claims` (
+  `claim_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `date_created_gmt` datetime DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`claim_id`),
+  KEY `date_created_gmt` (`date_created_gmt`)
+) ENGINE=InnoDB AUTO_INCREMENT=135 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_actionscheduler_claims`
+--
+
+LOCK TABLES `wp_actionscheduler_claims` WRITE;
+/*!40000 ALTER TABLE `wp_actionscheduler_claims` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wp_actionscheduler_claims` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_actionscheduler_groups`
+--
+
+DROP TABLE IF EXISTS `wp_actionscheduler_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_actionscheduler_groups` (
+  `group_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  PRIMARY KEY (`group_id`),
+  KEY `slug` (`slug`(191))
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_actionscheduler_groups`
+--
+
+LOCK TABLES `wp_actionscheduler_groups` WRITE;
+/*!40000 ALTER TABLE `wp_actionscheduler_groups` DISABLE KEYS */;
+INSERT INTO `wp_actionscheduler_groups` VALUES (1,'action-scheduler-migration');
+INSERT INTO `wp_actionscheduler_groups` VALUES (2,'wpforms');
+/*!40000 ALTER TABLE `wp_actionscheduler_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_actionscheduler_logs`
+--
+
+DROP TABLE IF EXISTS `wp_actionscheduler_logs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_actionscheduler_logs` (
+  `log_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `action_id` bigint(20) unsigned NOT NULL,
+  `message` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `log_date_gmt` datetime DEFAULT '0000-00-00 00:00:00',
+  `log_date_local` datetime DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`log_id`),
+  KEY `action_id` (`action_id`),
+  KEY `log_date_gmt` (`log_date_gmt`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_actionscheduler_logs`
+--
+
+LOCK TABLES `wp_actionscheduler_logs` WRITE;
+/*!40000 ALTER TABLE `wp_actionscheduler_logs` DISABLE KEYS */;
+INSERT INTO `wp_actionscheduler_logs` VALUES (1,2001,'action created','2025-03-10 15:49:20','2025-03-10 15:49:20');
+INSERT INTO `wp_actionscheduler_logs` VALUES (2,2001,'action started via WP Cron','2025-03-10 15:51:07','2025-03-10 15:51:07');
+INSERT INTO `wp_actionscheduler_logs` VALUES (3,2001,'action complete via WP Cron','2025-03-10 15:51:11','2025-03-10 15:51:11');
+INSERT INTO `wp_actionscheduler_logs` VALUES (4,2002,'action created','2025-03-10 15:51:49','2025-03-10 15:51:49');
+INSERT INTO `wp_actionscheduler_logs` VALUES (5,2003,'action created','2025-03-10 15:51:49','2025-03-10 15:51:49');
+INSERT INTO `wp_actionscheduler_logs` VALUES (6,2004,'action created','2025-03-10 15:51:49','2025-03-10 15:51:49');
+INSERT INTO `wp_actionscheduler_logs` VALUES (7,2005,'action created','2025-03-10 15:51:50','2025-03-10 15:51:50');
+INSERT INTO `wp_actionscheduler_logs` VALUES (8,2006,'action created','2025-03-10 15:51:50','2025-03-10 15:51:50');
+INSERT INTO `wp_actionscheduler_logs` VALUES (9,2004,'action started via Async Request','2025-03-10 15:51:52','2025-03-10 15:51:52');
+INSERT INTO `wp_actionscheduler_logs` VALUES (10,2004,'action complete via Async Request','2025-03-10 15:51:53','2025-03-10 15:51:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (11,2007,'action created','2025-03-10 15:51:53','2025-03-10 15:51:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (12,2002,'action started via Async Request','2025-03-10 15:51:53','2025-03-10 15:51:53');
+INSERT INTO `wp_actionscheduler_logs` VALUES (13,2002,'action complete via Async Request','2025-03-10 15:51:54','2025-03-10 15:51:54');
+INSERT INTO `wp_actionscheduler_logs` VALUES (14,2008,'action created','2025-03-10 15:51:55','2025-03-10 15:51:55');
+INSERT INTO `wp_actionscheduler_logs` VALUES (15,2003,'action started via Async Request','2025-03-10 15:51:56','2025-03-10 15:51:56');
+INSERT INTO `wp_actionscheduler_logs` VALUES (16,2003,'action complete via Async Request','2025-03-10 15:51:56','2025-03-10 15:51:56');
+INSERT INTO `wp_actionscheduler_logs` VALUES (17,2009,'action created','2025-03-10 15:51:57','2025-03-10 15:51:57');
+INSERT INTO `wp_actionscheduler_logs` VALUES (18,2010,'action created','2025-03-10 15:56:12','2025-03-10 15:56:12');
+INSERT INTO `wp_actionscheduler_logs` VALUES (19,2010,'action started via WP Cron','2025-03-10 15:57:06','2025-03-10 15:57:06');
+INSERT INTO `wp_actionscheduler_logs` VALUES (20,2010,'action complete via WP Cron','2025-03-10 15:57:07','2025-03-10 15:57:07');
+INSERT INTO `wp_actionscheduler_logs` VALUES (21,2011,'action created','2025-03-10 16:26:27','2025-03-10 16:26:27');
+INSERT INTO `wp_actionscheduler_logs` VALUES (22,2011,'action started via Async Request','2025-03-10 16:27:42','2025-03-10 16:27:42');
+INSERT INTO `wp_actionscheduler_logs` VALUES (23,2011,'action complete via Async Request','2025-03-10 16:27:42','2025-03-10 16:27:42');
+INSERT INTO `wp_actionscheduler_logs` VALUES (24,2012,'action created','2025-03-10 16:56:35','2025-03-10 16:56:35');
+INSERT INTO `wp_actionscheduler_logs` VALUES (25,2013,'action created','2025-03-10 17:48:03','2025-03-10 17:48:03');
+INSERT INTO `wp_actionscheduler_logs` VALUES (26,2013,'action started via WP Cron','2025-03-10 17:49:17','2025-03-10 17:49:17');
+INSERT INTO `wp_actionscheduler_logs` VALUES (27,2013,'action complete via WP Cron','2025-03-10 17:49:18','2025-03-10 17:49:18');
+/*!40000 ALTER TABLE `wp_actionscheduler_logs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_aysquiz_answers`
+--
+
+DROP TABLE IF EXISTS `wp_aysquiz_answers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_aysquiz_answers` (
+  `id` int(150) unsigned NOT NULL AUTO_INCREMENT,
+  `question_id` int(11) unsigned NOT NULL,
+  `answer` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `image` text COLLATE utf8mb4_unicode_520_ci,
+  `correct` tinyint(1) NOT NULL,
+  `ordering` int(11) NOT NULL,
+  `weight` double DEFAULT '0',
+  `placeholder` text COLLATE utf8mb4_unicode_520_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=150 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_aysquiz_answers`
+--
+
+LOCK TABLES `wp_aysquiz_answers` WRITE;
+/*!40000 ALTER TABLE `wp_aysquiz_answers` DISABLE KEYS */;
+INSERT INTO `wp_aysquiz_answers` VALUES (12,6,'Il définit le chemin de l\'image.',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (13,6,'Il fournit une description alternative pour les images.',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (14,6,'Il définit la taille de l\'image.',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (15,7,'<ol>',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (16,7,'<ul>',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (17,8,'En utilisant la balise <ul>.',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (18,8,'En utilisant la balise <li>.',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (19,8,'En utilisant la balise <ol>.',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (20,9,'href',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (21,7,'<li>',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (22,9,'src',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (23,9,'link',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (24,10,'Commentaire',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (25,10,'Commentaire',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (26,10,'<!-- Commentaire -->',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (27,11,'<textarea>',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (28,12,'<thead>',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (29,12,'<th>',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (30,12,'<header>',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (31,13,'table-width',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (32,13,'width',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (33,14,'target=\"_self\"',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (34,14,'target=\"_new\"',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (35,14,'target=\"_blank\"',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (36,11,'<tr>',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (37,11,'<td>',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (38,13,'table-layout',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (39,15,'href',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (40,15,'method',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (41,15,'action',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (42,16,'meta-charset',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (43,16,'encoding',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (44,16,'charset',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (45,17,'required',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (46,17,'mandatory',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (47,17,'obligatory',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (48,18,'<section>',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (49,18,'<div>',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (50,18,'<article>',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (51,19,'multi-step',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (52,19,'steps',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (53,19,'action',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (54,20,'contient du JavaScript,  est utilisé lorsque JavaScript est désactivé ou non pris en charge',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (55,20,'est pour les scripts externes,  pour les scripts internes.',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (56,20,'est une balise de mise en page,  est pour les images.',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (57,21,'alt',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (58,21,'title',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (59,21,'alt-text',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (60,22,'p { ... }',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (61,22,'#p { ... }',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (62,22,'.p { ... }',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (63,23,'#',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (64,23,'.',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (65,23,'@',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (66,24,'color: red;',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (67,24,'background-color: red;',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (68,24,'bgcolor: red;',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (69,25,'font-color',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (70,25,'text-color',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (71,25,'color',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (72,26,'Haut, Droite, Bas, Gauche',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (73,26,'Gauche, Droite, Haut, Bas',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (74,26,'Bas, Haut, Droite, Gauche',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (75,27,'display: none; rend l\'élément transparent, tandis que visibility: hidden; le supprime',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (76,27,'Les deux masquent l\'élément, mais visibility: hidden; conserve l\'espace réservé.',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (77,27,'Les deux masquent l\'élément et libèrent l\'espace réservé',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (78,28,'display',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (79,28,'position',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (80,28,'z-index',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (81,29,'border-radius',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (82,29,'border-round',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (83,29,'round-border',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (84,30,'relative',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (85,30,'static',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (86,30,'absolute',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (87,31,'line-spacing',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (88,31,'letter-spacing',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (89,31,'line-height',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (90,32,'color',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (91,32,'font-size',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (92,32,'margin',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (93,33,'em est relatif à la police de l\'élément parent, tandis que rem est relatif à la racine ().',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (94,33,'Les deux sont relatifs à la taille de la police de l\'élément parent.',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (95,33,'em est utilisé pour les marges, rem pour les polices.',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (96,34,'::before est pour le contenu dynamique, :before pour le contenu statique.',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (97,34,'::before est la notation CSS3, tandis que :before est CSS2.',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (98,34,':before est utilisé pour les images, ::before pour le texte.',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (99,35,'letter-spacing',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (100,35,'word-spacing',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (101,35,'character-spacing',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (102,36,'Elle crée une ombre autour de l\'élément.',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (103,36,'Elle redimensionne l\'élément pour l\'ajuster à son conteneur.',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (104,36,'Elle masque une partie d\'un élément en appliquant une forme de découpe.',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (105,37,'var',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (106,37,'let',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (107,37,'Toutes les réponses ci-dessus',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (108,38,'print()',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (109,38,'console.log()',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (110,38,'alert()',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (111,39,'function myFunction {}',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (112,39,'function myFunction() {}',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (113,39,'myFunction function() {}',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (114,40,'function saluer();',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (115,40,'call saluer();',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (116,40,'saluer();',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (117,41,'if (i == 5)',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (118,41,'if i = 5',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (119,41,'if i == 5 then',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (120,42,'var fruits = [\"Pomme\", \"Banane\", \"Orange\"];',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (121,42,'var fruits = \"Pomme\", \"Banane\", \"Orange\";',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (122,42,'var fruits = (1:\"Pomme\", 2:\"Banane\", 3:\"Orange\");',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (123,43,'push()',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (124,43,'join()',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (125,43,'concat()',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (126,44,'string',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (127,44,'text',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (128,44,'object',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (129,45,'Vérifie uniquement l\'égalité de la valeur',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (130,45,'Vérifie l\'égalité de la valeur et du type',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (131,45,'Vérifie uniquement l\'égalité du type',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (132,46,'null',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (133,46,'0',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (134,46,'undefined',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (135,47,'push()',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (136,47,'pop()',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (137,47,'shift()',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (138,48,'Analyse une chaîne en tant que tableau',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (139,48,'Convertit un nombre en chaîne',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (140,48,'Convertit une chaîne en nombre entier',NULL,1,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (141,49,'Not a Null',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (142,49,'Not a Number',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (143,49,'Not an Object',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (144,50,'setTimeout()',NULL,1,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (145,50,'setInterval()',NULL,0,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (146,50,'clearTimeout()',NULL,0,3,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (147,51,'let',NULL,0,1,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (148,51,'const',NULL,1,2,0,'');
+INSERT INTO `wp_aysquiz_answers` VALUES (149,51,'fixed',NULL,0,3,0,'');
+/*!40000 ALTER TABLE `wp_aysquiz_answers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_aysquiz_categories`
+--
+
+DROP TABLE IF EXISTS `wp_aysquiz_categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_aysquiz_categories` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(256) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `published` tinyint(3) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_aysquiz_categories`
+--
+
+LOCK TABLES `wp_aysquiz_categories` WRITE;
+/*!40000 ALTER TABLE `wp_aysquiz_categories` DISABLE KEYS */;
+INSERT INTO `wp_aysquiz_categories` VALUES (1,'Uncategorized','',1);
+/*!40000 ALTER TABLE `wp_aysquiz_categories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_aysquiz_questions`
+--
+
+DROP TABLE IF EXISTS `wp_aysquiz_questions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_aysquiz_questions` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` int(16) unsigned NOT NULL,
+  `question` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `question_title` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `question_image` text COLLATE utf8mb4_unicode_520_ci,
+  `wrong_answer_text` text COLLATE utf8mb4_unicode_520_ci,
+  `right_answer_text` text COLLATE utf8mb4_unicode_520_ci,
+  `question_hint` text COLLATE utf8mb4_unicode_520_ci,
+  `explanation` text COLLATE utf8mb4_unicode_520_ci,
+  `type` varchar(256) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `published` tinyint(3) unsigned NOT NULL,
+  `create_date` datetime DEFAULT NULL,
+  `not_influence_to_score` text COLLATE utf8mb4_unicode_520_ci,
+  `weight` double DEFAULT '1',
+  `options` text COLLATE utf8mb4_unicode_520_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_aysquiz_questions`
+--
+
+LOCK TABLES `wp_aysquiz_questions` WRITE;
+/*!40000 ALTER TABLE `wp_aysquiz_questions` DISABLE KEYS */;
+INSERT INTO `wp_aysquiz_questions` VALUES (6,1,'Que signifie l\\\'attribut <code data-start=\"514\" data-end=\"519\">alt</code> dans une balise <code data-start=\"536\" data-end=\"543\">&lt;img&gt;</code> ?','',NULL,'','','','','radio',1,'2025-03-09 23:04:09','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (7,1,'Quelle balise HTML est utilisée pour créer une liste non ordonnée ?','',NULL,'','','','','radio',1,'2025-03-09 23:05:39','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (8,1,'Comment créer une liste à puces en HTML ?','',NULL,'','','','','radio',1,'2025-03-09 23:06:17','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (9,1,'Quel attribut est utilisé pour spécifier l\\\'adresse d\\\'un lien dans la balise <code data-start=\"1314\" data-end=\"1319\">&lt;a&gt;</code> ?','',NULL,'','','','','radio',1,'2025-03-09 23:06:55','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (10,1,'Quelle balise HTML est utilisée pour insérer un commentaire ?','',NULL,'','','','','radio',1,'2025-03-09 23:19:07','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (11,1,'Quelle balise HTML permet d’insérer une ligne de tableau ?','',NULL,'','','','','radio',1,'2025-03-09 23:25:35','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (12,1,'Quelle balise HTML permet de spécifier un en-tête de tableau ?','',NULL,'','','','','radio',1,'2025-03-09 23:26:24','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (13,1,'Quelle propriété CSS permet de contrôler la largeur d’un tableau HTML ?','',NULL,'','','','','radio',1,'2025-03-09 23:27:15','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (14,1,'Comment spécifier qu\\\'un lien dans une page HTML doit ouvrir une autre page dans une nouvelle fenêtre ?','',NULL,'','','','','radio',1,'2025-03-09 23:27:58','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (15,1,'Quel attribut HTML est utilisé pour définir une action lors de la soumission d’un formulaire ?','',NULL,'','','','','radio',1,'2025-03-09 23:28:33','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (16,1,'Quel attribut HTML est utilisé pour spécifier l’encodage de caractères dans une page ?','',NULL,'','','','','radio',1,'2025-03-09 23:56:10','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (17,1,'Quel attribut HTML est utilisé pour indiquer qu’un champ de formulaire est obligatoire ?','',NULL,'','','','','radio',1,'2025-03-09 23:58:21','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (18,1,'Quelle est la balise HTML utilisée pour créer une section dans une page (utilisée dans les structures modernes de HTML5) ?','',NULL,'','','','','radio',1,'2025-03-09 23:59:38','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (19,1,'Quel attribut est utilisé pour spécifier un formulaire en plusieurs étapes dans un formulaire HTML ?','',NULL,'','','','','radio',1,'2025-03-10 00:15:59','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (20,1,'Quelle est la différence entre les balises <code data-start=\"2106\" data-end=\"2116\">&lt;script&gt;</code> et <code data-start=\"2120\" data-end=\"2132\">&lt;noscript&gt;</code> ?','',NULL,'','','','','radio',1,'2025-03-10 00:17:14','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (21,1,'Quel attribut HTML est utilisé pour spécifier un texte alternatif pour les balises <code data-start=\"1738\" data-end=\"1746\">&lt;area&gt;</code> dans une carte d\\\'image ?','',NULL,'','','','','radio',1,'2025-03-10 00:19:11','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (22,1,'Comment sélectionner tous les éléments <code data-start=\"424\" data-end=\"429\">&lt;p&gt;</code> dans un fichier CSS ?','',NULL,'','','','','radio',1,'2025-03-10 00:26:06','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (23,1,'Quel symbole est utilisé pour sélectionner une classe en CSS ?','',NULL,'','','','','radio',1,'2025-03-10 00:27:32','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (24,1,'Comment changer la couleur de fond d\\\'un élément en CSS ?','',NULL,'','','','','radio',1,'2025-03-10 00:28:15','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (25,1,'Quelle propriété est utilisée pour changer la couleur du texte ?','',NULL,'','','','','radio',1,'2025-03-10 00:28:59','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (26,1,'Quel est l\\\'ordre correct pour utiliser la propriété <code data-start=\"1030\" data-end=\"1038\">margin</code> avec 4 valeurs ?','',NULL,'','','','','radio',1,'2025-03-10 00:29:59','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (27,1,'Quelle est la différence entre <code data-start=\"175\" data-end=\"196\">visibility: hidden;</code> et <code data-start=\"200\" data-end=\"216\">display: none;</code> ?','',NULL,'','','','','radio',1,'2025-03-10 00:32:57','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (28,1,'Quelle propriété CSS est utilisée pour contrôler l\\\'ordre d\\\'empilement des éléments (superposition) ?','',NULL,'','','','','radio',1,'2025-03-10 00:34:17','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (29,1,'Comment créer un coin arrondi sur un élément HTML ?','',NULL,'','','','','radio',1,'2025-03-10 00:35:02','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (30,1,'Quelle est la valeur par défaut de la propriété <code data-start=\"951\" data-end=\"961\">position</code> en CSS ?','',NULL,'','','','','radio',1,'2025-03-10 00:36:02','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (31,1,'Quelle propriété permet de contrôler l\\\'espacement entre les lignes de texte ?','',NULL,'','','','','radio',1,'2025-03-10 00:36:47','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (32,1,'Laquelle des propriétés suivantes n\\\'est pas héritée par défaut ?','',NULL,'','','','','radio',1,'2025-03-10 00:39:22','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (33,1,'Quelle est la différence entre les unités <code data-start=\"539\" data-end=\"543\">em</code> et <code data-start=\"547\" data-end=\"552\">rem</code> ?','',NULL,'','','','','radio',1,'2025-03-10 00:40:04','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (34,1,'Quelle est la différence entre <code data-start=\"3721\" data-end=\"3731\">::before</code> et <code data-start=\"3735\" data-end=\"3744\">:before</code> ?','',NULL,'','','','','radio',1,'2025-03-10 00:40:37','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (35,1,'Quelle propriété permet d\\\'ajuster l\\\'espace entre les caractères ?','',NULL,'','','','','radio',1,'2025-03-10 00:41:49','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (36,1,'Que fait la propriété <code data-start=\"3211\" data-end=\"3222\">clip-path</code> ?','',NULL,'','','','','radio',1,'2025-03-10 00:42:31','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (37,1,'Quel mot-clé est utilisé pour déclarer une variable en JavaScript ?','',NULL,'','','','','radio',1,'2025-03-10 01:03:44','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (38,1,'Comment afficher un message dans la console du navigateur ?','',NULL,'','','','','radio',1,'2025-03-10 01:04:44','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (39,1,'Quelle est la syntaxe correcte pour créer une fonction en JavaScript ?','',NULL,'','','','','radio',1,'2025-03-10 01:05:35','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (40,1,'Comment appeler une fonction nommée <code data-start=\"761\" data-end=\"769\">saluer</code> ?','',NULL,'','','','','radio',1,'2025-03-10 01:06:09','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (41,1,'Quelle est la bonne syntaxe pour une condition <code data-start=\"937\" data-end=\"941\">if</code> en JavaScript ?','',NULL,'','','','','radio',1,'2025-03-10 01:06:50','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (42,1,'Comment créer un tableau en JavaScript ?','',NULL,'','','','','radio',1,'2025-03-10 01:09:04','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (43,1,'Quelle méthode permet de joindre les éléments d\\\'un tableau en une chaîne ?','',NULL,'','','','','radio',1,'2025-03-10 01:10:59','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (44,1,'Que retournera l\\\'expression suivante : <code data-start=\"1543\" data-end=\"1559\">typeof \\\"Hello\\\"</code> ?','',NULL,'','','','','radio',1,'2025-03-10 01:11:48','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (45,1,'Que signifie l\\\'opérateur <code data-start=\"1667\" data-end=\"1672\">===</code> en JavaScript ?','',NULL,'','','','','radio',1,'2025-03-10 01:18:34','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (46,1,'Quelle est la valeur par défaut d\\\'une variable non initialisée en JavaScript ?','',NULL,'','','','','radio',1,'2025-03-10 01:19:37','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (47,1,'Comment ajouter un élément à la fin d\\\'un tableau en JavaScript ?','',NULL,'','','','','radio',1,'2025-03-10 01:21:42','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (48,1,'Que fait la méthode <code data-start=\"2224\" data-end=\"2236\">parseInt()</code> en JavaScript ?','',NULL,'','','','','radio',1,'2025-03-10 01:22:19','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (49,1,'Que signifie <code data-start=\"2467\" data-end=\"2472\">NaN</code> en JavaScript ?','',NULL,'','','','','radio',1,'2025-03-10 01:23:05','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (50,1,'Quelle méthode permet d\\\'exécuter du code après un certain délai ?','',NULL,'','','','','radio',1,'2025-03-10 01:23:40','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+INSERT INTO `wp_aysquiz_questions` VALUES (51,1,'Comment déclarer une constante en JavaScript ?','',NULL,'','','','','radio',1,'2025-03-10 01:24:20','off',1,'{\"author\":\"{\\\"id\\\":1,\\\"name\\\":\\\"WebLearn\\\"}\",\"use_html\":\"off\",\"enable_question_text_max_length\":\"off\",\"question_text_max_length\":\"\",\"question_limit_text_type\":\"characters\",\"question_enable_text_message\":\"off\",\"enable_question_number_max_length\":\"off\",\"question_number_max_length\":\"\",\"quiz_hide_question_text\":\"off\",\"enable_max_selection_number\":\"off\",\"max_selection_number\":\"\",\"quiz_question_note_message\":\"\",\"enable_case_sensitive_text\":\"off\",\"enable_question_number_min_length\":\"off\",\"question_number_min_length\":\"\",\"enable_question_number_error_message\":\"off\",\"question_number_error_message\":\"\",\"enable_min_selection_number\":\"off\",\"min_selection_number\":\"\",\"quiz_disable_answer_stripslashes\":\"off\",\"quiz_enable_question_stripslashes\":\"off\"}');
+/*!40000 ALTER TABLE `wp_aysquiz_questions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_aysquiz_quizcategories`
+--
+
+DROP TABLE IF EXISTS `wp_aysquiz_quizcategories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_aysquiz_quizcategories` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(256) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `published` tinyint(1) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_aysquiz_quizcategories`
+--
+
+LOCK TABLES `wp_aysquiz_quizcategories` WRITE;
+/*!40000 ALTER TABLE `wp_aysquiz_quizcategories` DISABLE KEYS */;
+INSERT INTO `wp_aysquiz_quizcategories` VALUES (1,'Uncategorized','',1);
+/*!40000 ALTER TABLE `wp_aysquiz_quizcategories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_aysquiz_quizes`
+--
+
+DROP TABLE IF EXISTS `wp_aysquiz_quizes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_aysquiz_quizes` (
+  `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(256) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `quiz_image` text COLLATE utf8mb4_unicode_520_ci,
+  `quiz_category_id` int(11) unsigned NOT NULL,
+  `question_ids` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `ordering` int(16) NOT NULL,
+  `quiz_url` text COLLATE utf8mb4_unicode_520_ci,
+  `published` tinyint(3) unsigned NOT NULL,
+  `options` text COLLATE utf8mb4_unicode_520_ci,
+  `intervals` text COLLATE utf8mb4_unicode_520_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_aysquiz_quizes`
+--
+
+LOCK TABLES `wp_aysquiz_quizes` WRITE;
+/*!40000 ALTER TABLE `wp_aysquiz_quizes` DISABLE KEYS */;
+INSERT INTO `wp_aysquiz_quizes` VALUES (2,'Quiz HTML Niveau débutant','','',1,'10,9,8,6,7',1,'',1,'{\"quiz_version\":\"6.6.8.5\",\"core_version\":\"6.7.2\",\"php_version\":\"8.2.23\",\"color\":\"#5d6cf9\",\"bg_color\":\"#ffffff\",\"text_color\":\"#000000\",\"height\":250,\"width\":800,\"enable_logged_users\":\"off\",\"information_form\":\"disable\",\"form_name\":null,\"form_email\":null,\"form_phone\":null,\"image_width\":\"\",\"image_height\":\"\",\"enable_correction\":\"on\",\"enable_progress_bar\":\"on\",\"enable_questions_result\":\"on\",\"randomize_questions\":\"off\",\"randomize_answers\":\"off\",\"enable_questions_counter\":\"on\",\"enable_restriction_pass\":\"off\",\"restriction_pass_message\":\"\",\"user_role\":[],\"custom_css\":\"\",\"limit_users\":\"off\",\"limitation_message\":\"\",\"redirect_url\":\"\",\"redirection_delay\":0,\"answers_view\":\"list\",\"enable_rtl_direction\":\"off\",\"enable_logged_users_message\":\"\",\"questions_count\":\"\",\"enable_question_bank\":\"off\",\"enable_live_progress_bar\":\"off\",\"enable_percent_view\":\"off\",\"enable_average_statistical\":\"on\",\"enable_next_button\":\"on\",\"enable_previous_button\":\"on\",\"enable_arrows\":\"off\",\"timer_text\":\"\",\"quiz_theme\":\"classic_light\",\"enable_social_buttons\":\"off\",\"result_text\":\"\",\"enable_pass_count\":\"off\",\"hide_score\":\"off\",\"rate_form_title\":\"\",\"box_shadow_color\":\"#c9c9c9\",\"quiz_border_radius\":\"8\",\"quiz_bg_image\":\"\",\"quiz_border_width\":\"1\",\"quiz_border_style\":\"solid\",\"quiz_border_color\":\"#000\",\"quiz_loader\":\"default\",\"create_date\":\"2025-03-09 23:23:29\",\"author\":\"{\\\"id\\\":\\\"1\\\",\\\"name\\\":\\\"WebLearn\\\"}\",\"quest_animation\":\"shake\",\"form_title\":\"\",\"enable_bg_music\":\"off\",\"quiz_bg_music\":\"\",\"answers_font_size\":15,\"show_create_date\":\"off\",\"show_author\":\"off\",\"enable_early_finish\":\"off\",\"answers_rw_texts\":\"on_passing\",\"disable_store_data\":\"off\",\"enable_background_gradient\":\"on\",\"background_gradient_color_1\":\"rgba(12,75,183,0.76)\",\"background_gradient_color_2\":\"#fff\",\"quiz_gradient_direction\":\"vertical\",\"redirect_after_submit\":\"off\",\"submit_redirect_url\":\"\",\"submit_redirect_delay\":\"0\",\"progress_bar_style\":\"third\",\"enable_exit_button\":\"off\",\"exit_redirect_url\":\"\",\"image_sizing\":\"cover\",\"quiz_bg_image_position\":\"center center\",\"custom_class\":\"\",\"enable_social_links\":\"off\",\"social_links\":{\"linkedin_link\":\"\",\"facebook_link\":\"\",\"twitter_link\":\"\",\"vkontakte_link\":\"\",\"instagram_link\":\"\",\"youtube_link\":\"\",\"behance_link\":\"\"},\"show_quiz_title\":\"on\",\"show_quiz_desc\":\"on\",\"show_login_form\":\"off\",\"mobile_max_width\":\"\",\"limit_users_by\":\"ip\",\"active_date_check\":\"off\",\"activeInterval\":\"2025-03-10 01:28:08\",\"deactiveInterval\":\"2025-03-10 01:28:08\",\"active_date_pre_start_message\":\"Le quiz sera bient\\u00f4t disponible\\u00a0!\",\"active_date_message\":\"Le quiz a expir\\u00e9\\u00a0!\",\"explanation_time\":\"4\",\"enable_clear_answer\":\"off\",\"show_category\":\"off\",\"show_question_category\":\"off\",\"display_score\":\"by_percantage\",\"enable_rw_asnwers_sounds\":\"off\",\"ans_right_wrong_icon\":\"style-1\",\"quiz_bg_img_in_finish_page\":\"off\",\"finish_after_wrong_answer\":\"off\",\"after_timer_text\":\"\",\"enable_enter_key\":\"on\",\"buttons_text_color\":\"#ffffff\",\"buttons_position\":\"center\",\"show_questions_explanation\":\"on_results_page\",\"enable_audio_autoplay\":\"off\",\"buttons_size\":\"large\",\"buttons_font_size\":\"18\",\"buttons_width\":\"\",\"buttons_left_right_padding\":\"36\",\"buttons_top_bottom_padding\":\"14\",\"buttons_border_radius\":\"8\",\"enable_leave_page\":\"on\",\"enable_tackers_count\":\"off\",\"tackers_count\":\"\",\"pass_score\":0,\"pass_score_message\":\"<h4 style=\\\"text-align: center\\\">F\\u00e9licitations\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous avez r\\u00e9ussi le quiz\\u00a0!<\\/p>\",\"fail_score_message\":\"<h4 style=\\\"text-align: center\\\">Oups\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous n\\u2019avez pas r\\u00e9ussi le quiz\\u00a0!\\r\\nR\\u00e9essayez\\u00a0!<\\/p>\",\"question_font_size\":16,\"quiz_width_by_percentage_px\":\"pixels\",\"questions_hint_icon_or_text\":\"default\",\"questions_hint_value\":\"\",\"enable_early_finsh_comfirm_box\":\"on\",\"enable_questions_ordering_by_cat\":\"off\",\"show_schedule_timer\":\"off\",\"show_timer_type\":\"countdown\",\"quiz_loader_text_value\":\"\",\"hide_correct_answers\":\"off\",\"show_information_form\":\"on\",\"quiz_loader_custom_gif\":\"\",\"disable_hover_effect\":\"off\",\"quiz_loader_custom_gif_width\":100,\"progress_live_bar_style\":\"default\",\"quiz_title_transformation\":\"uppercase\",\"show_answers_numbering\":\"none\",\"quiz_image_width_by_percentage_px\":\"pixels\",\"quiz_image_height\":\"\",\"quiz_bg_img_on_start_page\":\"off\",\"quiz_box_shadow_x_offset\":0,\"quiz_box_shadow_y_offset\":0,\"quiz_box_shadow_z_offset\":15,\"quiz_question_text_alignment\":\"center\",\"quiz_arrow_type\":\"default\",\"quiz_show_wrong_answers_first\":\"off\",\"quiz_display_all_questions\":\"off\",\"quiz_timer_red_warning\":\"off\",\"quiz_schedule_timezone\":\"UTC+0\",\"questions_hint_button_value\":\"\",\"quiz_tackers_message\":\"Ce quiz a expir\\u00e9\\u00a0!\",\"quiz_enable_linkedin_share_button\":\"on\",\"quiz_enable_facebook_share_button\":\"on\",\"quiz_enable_twitter_share_button\":\"on\",\"quiz_make_responses_anonymous\":\"off\",\"quiz_make_all_review_link\":\"off\",\"show_questions_numbering\":\"none\",\"quiz_message_before_timer\":\"\",\"enable_password\":\"off\",\"password_quiz\":\"\",\"quiz_password_message\":\"\",\"enable_see_result_confirm_box\":\"off\",\"display_fields_labels\":\"off\",\"enable_full_screen_mode\":\"off\",\"quiz_enable_password_visibility\":\"off\",\"question_mobile_font_size\":16,\"answers_mobile_font_size\":15,\"social_buttons_heading\":\"\",\"quiz_enable_vkontakte_share_button\":\"on\",\"answers_border\":\"on\",\"answers_border_width\":1,\"answers_border_style\":\"solid\",\"answers_border_color\":\"#dddddd\",\"social_links_heading\":\"\",\"quiz_enable_question_category_description\":\"off\",\"answers_margin\":12,\"quiz_message_before_redirect_timer\":\"\",\"buttons_mobile_font_size\":18,\"answers_box_shadow\":\"off\",\"answers_box_shadow_color\":\"#000\",\"quiz_answer_box_shadow_x_offset\":0,\"quiz_answer_box_shadow_y_offset\":0,\"quiz_answer_box_shadow_z_offset\":10,\"quiz_create_author\":1,\"quiz_enable_title_text_shadow\":\"off\",\"quiz_title_text_shadow_color\":\"#333\",\"quiz_title_text_shadow_x_offset\":2,\"quiz_title_text_shadow_y_offset\":2,\"quiz_title_text_shadow_z_offset\":2,\"quiz_show_only_wrong_answers\":\"off\",\"quiz_title_font_size\":28,\"quiz_title_mobile_font_size\":20,\"quiz_password_width\":\"\",\"quiz_review_placeholder_text\":\"\",\"quiz_make_review_required\":\"off\",\"quiz_enable_results_toggle\":\"off\",\"quiz_review_thank_you_message\":\"\",\"quiz_review_enable_comment_field\":\"on\",\"quest_explanation_font_size\":16,\"quest_explanation_mobile_font_size\":16,\"quiz_waiting_time\":\"off\",\"wrong_answers_font_size\":16,\"wrong_answers_mobile_font_size\":16,\"quiz_enable_question_image_zoom\":\"off\",\"right_answers_font_size\":16,\"right_answers_mobile_font_size\":16,\"quiz_display_messages_before_buttons\":\"off\",\"quiz_enable_user_c\\u0570oosing_anonymous_assessment\":\"off\",\"note_text_font_size\":14,\"note_text_mobile_font_size\":14,\"quiz_questions_numbering_by_category\":\"off\",\"quiz_enable_custom_texts_for_buttons\":\"off\",\"quiz_custom_texts_start_button\":\"Start\",\"quiz_custom_texts_next_button\":\"Next\",\"quiz_custom_texts_prev_button\":\"Prev\",\"quiz_custom_texts_clear_button\":\"Clear\",\"quiz_custom_texts_finish_button\":\"Finish\",\"quiz_custom_texts_see_results_button\":\"See Result\",\"quiz_custom_texts_restart_quiz_button\":\"Restart quiz\",\"quiz_custom_texts_send_feedback_button\":\"Send feedback\",\"quiz_custom_texts_load_more_button\":\"Load more\",\"quiz_custom_texts_exit_button\":\"Exit\",\"quiz_custom_texts_check_button\":\"Check\",\"quiz_custom_texts_login_button\":\"Log In\",\"quiz_enable_quiz_category_description\":\"off\",\"quiz_admin_note_text_transform\":\"none\",\"quiz_quest_explanation_text_transform\":\"none\",\"quiz_right_answer_text_transform\":\"none\",\"quiz_wrong_answer_text_transform\":\"none\",\"quiz_admin_note_text_decoration\":\"none\",\"quiz_quest_explanation_text_decoration\":\"none\",\"quiz_right_answers_text_decoration\":\"none\",\"quiz_wrong_answers_text_decoration\":\"none\",\"quiz_admin_note_letter_spacing\":\"0\",\"quiz_bg_img_during_the_quiz\":\"off\",\"quiz_quest_explanation_letter_spacing\":\"0\",\"quiz_right_answers_letter_spacing\":\"0\",\"quiz_wrong_answers_letter_spacing\":\"0\",\"quiz_admin_note_font_weight\":\"normal\",\"quiz_quest_explanation_font_weight\":\"normal\",\"quiz_right_answers_font_weight\":\"normal\",\"quiz_wrong_answers_font_weight\":\"normal\",\"quiz_content_max_width\":90,\"quiz_content_mobile_max_width\":90,\"quiz_timer_warning_text_color\":\"#ff0000\",\"required_fields\":null,\"enable_timer\":\"off\",\"enable_quiz_rate\":\"off\",\"enable_rate_avg\":\"off\",\"enable_box_shadow\":\"on\",\"enable_border\":\"off\",\"quiz_timer_in_title\":\"off\",\"enable_rate_comments\":\"off\",\"enable_restart_button\":\"on\",\"autofill_user_data\":\"off\",\"timer\":100}',NULL);
+INSERT INTO `wp_aysquiz_quizes` VALUES (3,'Quiz HTML Niveau moyen','','',1,'15,14,13,12,11',3,'',1,'{\"quiz_version\":\"6.6.8.5\",\"core_version\":\"6.7.2\",\"php_version\":\"8.2.23\",\"color\":\"#5d6cf9\",\"bg_color\":\"#fff\",\"text_color\":\"#000000\",\"height\":250,\"width\":800,\"enable_logged_users\":\"off\",\"information_form\":\"disable\",\"form_name\":null,\"form_email\":null,\"form_phone\":null,\"image_width\":\"\",\"image_height\":\"\",\"enable_correction\":\"on\",\"enable_progress_bar\":\"on\",\"enable_questions_result\":\"on\",\"randomize_questions\":\"off\",\"randomize_answers\":\"off\",\"enable_questions_counter\":\"on\",\"enable_restriction_pass\":\"off\",\"restriction_pass_message\":\"\",\"user_role\":[],\"custom_css\":\"\",\"limit_users\":\"off\",\"limitation_message\":\"\",\"redirect_url\":\"\",\"redirection_delay\":0,\"answers_view\":\"list\",\"enable_rtl_direction\":\"off\",\"enable_logged_users_message\":\"\",\"questions_count\":\"\",\"enable_question_bank\":\"off\",\"enable_live_progress_bar\":\"off\",\"enable_percent_view\":\"off\",\"enable_average_statistical\":\"on\",\"enable_next_button\":\"on\",\"enable_previous_button\":\"on\",\"enable_arrows\":\"off\",\"timer_text\":\"\",\"quiz_theme\":\"classic_light\",\"enable_social_buttons\":\"off\",\"result_text\":\"\",\"enable_pass_count\":\"off\",\"hide_score\":\"off\",\"rate_form_title\":\"\",\"box_shadow_color\":\"#c9c9c9\",\"quiz_border_radius\":\"8\",\"quiz_bg_image\":\"\",\"quiz_border_width\":\"1\",\"quiz_border_style\":\"solid\",\"quiz_border_color\":\"#000\",\"quiz_loader\":\"default\",\"create_date\":\"2025-03-09 23:25:01\",\"author\":\"{\\\"id\\\":\\\"1\\\",\\\"name\\\":\\\"WebLearn\\\"}\",\"quest_animation\":\"shake\",\"form_title\":\"\",\"enable_bg_music\":\"off\",\"quiz_bg_music\":\"\",\"answers_font_size\":15,\"show_create_date\":\"off\",\"show_author\":\"off\",\"enable_early_finish\":\"off\",\"answers_rw_texts\":\"on_passing\",\"disable_store_data\":\"off\",\"enable_background_gradient\":\"on\",\"background_gradient_color_1\":\"rgba(12,75,183,0.76)\",\"background_gradient_color_2\":\"#fff\",\"quiz_gradient_direction\":\"vertical\",\"redirect_after_submit\":\"off\",\"submit_redirect_url\":\"\",\"submit_redirect_delay\":\"0\",\"progress_bar_style\":\"third\",\"enable_exit_button\":\"off\",\"exit_redirect_url\":\"\",\"image_sizing\":\"cover\",\"quiz_bg_image_position\":\"center center\",\"custom_class\":\"\",\"enable_social_links\":\"off\",\"social_links\":{\"linkedin_link\":\"\",\"facebook_link\":\"\",\"twitter_link\":\"\",\"vkontakte_link\":\"\",\"instagram_link\":\"\",\"youtube_link\":\"\",\"behance_link\":\"\"},\"show_quiz_title\":\"on\",\"show_quiz_desc\":\"on\",\"show_login_form\":\"off\",\"mobile_max_width\":\"\",\"limit_users_by\":\"ip\",\"active_date_check\":\"off\",\"activeInterval\":\"2025-03-10 01:30:22\",\"deactiveInterval\":\"2025-03-10 01:30:22\",\"active_date_pre_start_message\":\"Le quiz sera bient\\u00f4t disponible\\u00a0!\",\"active_date_message\":\"Le quiz a expir\\u00e9\\u00a0!\",\"explanation_time\":\"4\",\"enable_clear_answer\":\"off\",\"show_category\":\"off\",\"show_question_category\":\"off\",\"display_score\":\"by_percantage\",\"enable_rw_asnwers_sounds\":\"off\",\"ans_right_wrong_icon\":\"style-1\",\"quiz_bg_img_in_finish_page\":\"off\",\"finish_after_wrong_answer\":\"off\",\"after_timer_text\":\"\",\"enable_enter_key\":\"on\",\"buttons_text_color\":\"#ffffff\",\"buttons_position\":\"center\",\"show_questions_explanation\":\"on_results_page\",\"enable_audio_autoplay\":\"off\",\"buttons_size\":\"large\",\"buttons_font_size\":\"18\",\"buttons_width\":\"\",\"buttons_left_right_padding\":\"36\",\"buttons_top_bottom_padding\":\"14\",\"buttons_border_radius\":\"8\",\"enable_leave_page\":\"on\",\"enable_tackers_count\":\"off\",\"tackers_count\":\"\",\"pass_score\":0,\"pass_score_message\":\"<h4 style=\\\"text-align: center\\\">F\\u00e9licitations\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous avez r\\u00e9ussi le quiz\\u00a0!<\\/p>\",\"fail_score_message\":\"<h4 style=\\\"text-align: center\\\">Oups\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous n\\u2019avez pas r\\u00e9ussi le quiz\\u00a0!\\r\\nR\\u00e9essayez\\u00a0!<\\/p>\",\"question_font_size\":16,\"quiz_width_by_percentage_px\":\"pixels\",\"questions_hint_icon_or_text\":\"default\",\"questions_hint_value\":\"\",\"enable_early_finsh_comfirm_box\":\"on\",\"enable_questions_ordering_by_cat\":\"off\",\"show_schedule_timer\":\"off\",\"show_timer_type\":\"countdown\",\"quiz_loader_text_value\":\"\",\"hide_correct_answers\":\"off\",\"show_information_form\":\"on\",\"quiz_loader_custom_gif\":\"\",\"disable_hover_effect\":\"off\",\"quiz_loader_custom_gif_width\":100,\"progress_live_bar_style\":\"default\",\"quiz_title_transformation\":\"uppercase\",\"show_answers_numbering\":\"none\",\"quiz_image_width_by_percentage_px\":\"pixels\",\"quiz_image_height\":\"\",\"quiz_bg_img_on_start_page\":\"off\",\"quiz_box_shadow_x_offset\":0,\"quiz_box_shadow_y_offset\":0,\"quiz_box_shadow_z_offset\":15,\"quiz_question_text_alignment\":\"center\",\"quiz_arrow_type\":\"default\",\"quiz_show_wrong_answers_first\":\"off\",\"quiz_display_all_questions\":\"off\",\"quiz_timer_red_warning\":\"off\",\"quiz_schedule_timezone\":\"UTC+0\",\"questions_hint_button_value\":\"\",\"quiz_tackers_message\":\"Ce quiz a expir\\u00e9\\u00a0!\",\"quiz_enable_linkedin_share_button\":\"on\",\"quiz_enable_facebook_share_button\":\"on\",\"quiz_enable_twitter_share_button\":\"on\",\"quiz_make_responses_anonymous\":\"off\",\"quiz_make_all_review_link\":\"off\",\"show_questions_numbering\":\"none\",\"quiz_message_before_timer\":\"\",\"enable_password\":\"off\",\"password_quiz\":\"\",\"quiz_password_message\":\"\",\"enable_see_result_confirm_box\":\"off\",\"display_fields_labels\":\"off\",\"enable_full_screen_mode\":\"off\",\"quiz_enable_password_visibility\":\"off\",\"question_mobile_font_size\":16,\"answers_mobile_font_size\":15,\"social_buttons_heading\":\"\",\"quiz_enable_vkontakte_share_button\":\"on\",\"answers_border\":\"on\",\"answers_border_width\":1,\"answers_border_style\":\"solid\",\"answers_border_color\":\"#dddddd\",\"social_links_heading\":\"\",\"quiz_enable_question_category_description\":\"off\",\"answers_margin\":12,\"quiz_message_before_redirect_timer\":\"\",\"buttons_mobile_font_size\":18,\"answers_box_shadow\":\"off\",\"answers_box_shadow_color\":\"#000\",\"quiz_answer_box_shadow_x_offset\":0,\"quiz_answer_box_shadow_y_offset\":0,\"quiz_answer_box_shadow_z_offset\":10,\"quiz_create_author\":1,\"quiz_enable_title_text_shadow\":\"off\",\"quiz_title_text_shadow_color\":\"#333\",\"quiz_title_text_shadow_x_offset\":2,\"quiz_title_text_shadow_y_offset\":2,\"quiz_title_text_shadow_z_offset\":2,\"quiz_show_only_wrong_answers\":\"off\",\"quiz_title_font_size\":28,\"quiz_title_mobile_font_size\":20,\"quiz_password_width\":\"\",\"quiz_review_placeholder_text\":\"\",\"quiz_make_review_required\":\"off\",\"quiz_enable_results_toggle\":\"off\",\"quiz_review_thank_you_message\":\"\",\"quiz_review_enable_comment_field\":\"on\",\"quest_explanation_font_size\":16,\"quest_explanation_mobile_font_size\":16,\"quiz_waiting_time\":\"off\",\"wrong_answers_font_size\":16,\"wrong_answers_mobile_font_size\":16,\"quiz_enable_question_image_zoom\":\"off\",\"right_answers_font_size\":16,\"right_answers_mobile_font_size\":16,\"quiz_display_messages_before_buttons\":\"off\",\"quiz_enable_user_c\\u0570oosing_anonymous_assessment\":\"off\",\"note_text_font_size\":14,\"note_text_mobile_font_size\":14,\"quiz_questions_numbering_by_category\":\"off\",\"quiz_enable_custom_texts_for_buttons\":\"off\",\"quiz_custom_texts_start_button\":\"Start\",\"quiz_custom_texts_next_button\":\"Next\",\"quiz_custom_texts_prev_button\":\"Prev\",\"quiz_custom_texts_clear_button\":\"Clear\",\"quiz_custom_texts_finish_button\":\"Finish\",\"quiz_custom_texts_see_results_button\":\"See Result\",\"quiz_custom_texts_restart_quiz_button\":\"Restart quiz\",\"quiz_custom_texts_send_feedback_button\":\"Send feedback\",\"quiz_custom_texts_load_more_button\":\"Load more\",\"quiz_custom_texts_exit_button\":\"Exit\",\"quiz_custom_texts_check_button\":\"Check\",\"quiz_custom_texts_login_button\":\"Log In\",\"quiz_enable_quiz_category_description\":\"off\",\"quiz_admin_note_text_transform\":\"none\",\"quiz_quest_explanation_text_transform\":\"none\",\"quiz_right_answer_text_transform\":\"none\",\"quiz_wrong_answer_text_transform\":\"none\",\"quiz_admin_note_text_decoration\":\"none\",\"quiz_quest_explanation_text_decoration\":\"none\",\"quiz_right_answers_text_decoration\":\"none\",\"quiz_wrong_answers_text_decoration\":\"none\",\"quiz_admin_note_letter_spacing\":\"0\",\"quiz_bg_img_during_the_quiz\":\"off\",\"quiz_quest_explanation_letter_spacing\":\"0\",\"quiz_right_answers_letter_spacing\":\"0\",\"quiz_wrong_answers_letter_spacing\":\"0\",\"quiz_admin_note_font_weight\":\"normal\",\"quiz_quest_explanation_font_weight\":\"normal\",\"quiz_right_answers_font_weight\":\"normal\",\"quiz_wrong_answers_font_weight\":\"normal\",\"quiz_content_max_width\":90,\"quiz_content_mobile_max_width\":90,\"quiz_timer_warning_text_color\":\"#ff0000\",\"required_fields\":null,\"enable_timer\":\"off\",\"enable_quiz_rate\":\"off\",\"enable_rate_avg\":\"off\",\"enable_box_shadow\":\"on\",\"enable_border\":\"off\",\"quiz_timer_in_title\":\"off\",\"enable_rate_comments\":\"off\",\"enable_restart_button\":\"on\",\"autofill_user_data\":\"off\",\"timer\":100}',NULL);
+INSERT INTO `wp_aysquiz_quizes` VALUES (4,'Quiz HTML Niveau difficile','','',1,'21,20,19,18,17',4,'',1,'{\"quiz_version\":\"6.6.8.5\",\"core_version\":\"6.7.2\",\"php_version\":\"8.2.23\",\"color\":\"#5d6cf9\",\"bg_color\":\"#fff\",\"text_color\":\"#000000\",\"height\":250,\"width\":800,\"enable_logged_users\":\"off\",\"information_form\":\"disable\",\"form_name\":null,\"form_email\":null,\"form_phone\":null,\"image_width\":\"\",\"image_height\":\"\",\"enable_correction\":\"on\",\"enable_progress_bar\":\"on\",\"enable_questions_result\":\"on\",\"randomize_questions\":\"off\",\"randomize_answers\":\"off\",\"enable_questions_counter\":\"on\",\"enable_restriction_pass\":\"off\",\"restriction_pass_message\":\"\",\"user_role\":[],\"custom_css\":\"\",\"limit_users\":\"off\",\"limitation_message\":\"\",\"redirect_url\":\"\",\"redirection_delay\":0,\"answers_view\":\"list\",\"enable_rtl_direction\":\"off\",\"enable_logged_users_message\":\"\",\"questions_count\":\"\",\"enable_question_bank\":\"off\",\"enable_live_progress_bar\":\"off\",\"enable_percent_view\":\"off\",\"enable_average_statistical\":\"on\",\"enable_next_button\":\"on\",\"enable_previous_button\":\"on\",\"enable_arrows\":\"off\",\"timer_text\":\"\",\"quiz_theme\":\"classic_light\",\"enable_social_buttons\":\"off\",\"result_text\":\"\",\"enable_pass_count\":\"off\",\"hide_score\":\"off\",\"rate_form_title\":\"\",\"box_shadow_color\":\"#c9c9c9\",\"quiz_border_radius\":\"8\",\"quiz_bg_image\":\"\",\"quiz_border_width\":\"1\",\"quiz_border_style\":\"solid\",\"quiz_border_color\":\"#000\",\"quiz_loader\":\"default\",\"create_date\":\"2025-03-10 00:19:47\",\"author\":\"{\\\"id\\\":\\\"1\\\",\\\"name\\\":\\\"WebLearn\\\"}\",\"quest_animation\":\"shake\",\"form_title\":\"\",\"enable_bg_music\":\"off\",\"quiz_bg_music\":\"\",\"answers_font_size\":15,\"show_create_date\":\"off\",\"show_author\":\"off\",\"enable_early_finish\":\"off\",\"answers_rw_texts\":\"on_passing\",\"disable_store_data\":\"off\",\"enable_background_gradient\":\"on\",\"background_gradient_color_1\":\"rgba(12,75,183,0.76)\",\"background_gradient_color_2\":\"#fff\",\"quiz_gradient_direction\":\"vertical\",\"redirect_after_submit\":\"off\",\"submit_redirect_url\":\"\",\"submit_redirect_delay\":\"0\",\"progress_bar_style\":\"third\",\"enable_exit_button\":\"off\",\"exit_redirect_url\":\"\",\"image_sizing\":\"cover\",\"quiz_bg_image_position\":\"center center\",\"custom_class\":\"\",\"enable_social_links\":\"off\",\"social_links\":{\"linkedin_link\":\"\",\"facebook_link\":\"\",\"twitter_link\":\"\",\"vkontakte_link\":\"\",\"instagram_link\":\"\",\"youtube_link\":\"\",\"behance_link\":\"\"},\"show_quiz_title\":\"on\",\"show_quiz_desc\":\"on\",\"show_login_form\":\"off\",\"mobile_max_width\":\"\",\"limit_users_by\":\"ip\",\"active_date_check\":\"off\",\"activeInterval\":\"2025-03-10 01:30:44\",\"deactiveInterval\":\"2025-03-10 01:30:44\",\"active_date_pre_start_message\":\"Le quiz sera bient\\u00f4t disponible\\u00a0!\",\"active_date_message\":\"Le quiz a expir\\u00e9\\u00a0!\",\"explanation_time\":\"4\",\"enable_clear_answer\":\"off\",\"show_category\":\"off\",\"show_question_category\":\"off\",\"display_score\":\"by_percantage\",\"enable_rw_asnwers_sounds\":\"off\",\"ans_right_wrong_icon\":\"style-1\",\"quiz_bg_img_in_finish_page\":\"off\",\"finish_after_wrong_answer\":\"off\",\"after_timer_text\":\"\",\"enable_enter_key\":\"on\",\"buttons_text_color\":\"#ffffff\",\"buttons_position\":\"center\",\"show_questions_explanation\":\"on_results_page\",\"enable_audio_autoplay\":\"off\",\"buttons_size\":\"large\",\"buttons_font_size\":\"18\",\"buttons_width\":\"\",\"buttons_left_right_padding\":\"36\",\"buttons_top_bottom_padding\":\"14\",\"buttons_border_radius\":\"8\",\"enable_leave_page\":\"on\",\"enable_tackers_count\":\"off\",\"tackers_count\":\"\",\"pass_score\":0,\"pass_score_message\":\"<h4 style=\\\"text-align: center\\\">F\\u00e9licitations\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous avez r\\u00e9ussi le quiz\\u00a0!<\\/p>\",\"fail_score_message\":\"<h4 style=\\\"text-align: center\\\">Oups\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous n\\u2019avez pas r\\u00e9ussi le quiz\\u00a0!\\r\\nR\\u00e9essayez\\u00a0!<\\/p>\",\"question_font_size\":16,\"quiz_width_by_percentage_px\":\"pixels\",\"questions_hint_icon_or_text\":\"default\",\"questions_hint_value\":\"\",\"enable_early_finsh_comfirm_box\":\"on\",\"enable_questions_ordering_by_cat\":\"off\",\"show_schedule_timer\":\"off\",\"show_timer_type\":\"countdown\",\"quiz_loader_text_value\":\"\",\"hide_correct_answers\":\"off\",\"show_information_form\":\"on\",\"quiz_loader_custom_gif\":\"\",\"disable_hover_effect\":\"off\",\"quiz_loader_custom_gif_width\":100,\"progress_live_bar_style\":\"default\",\"quiz_title_transformation\":\"uppercase\",\"show_answers_numbering\":\"none\",\"quiz_image_width_by_percentage_px\":\"pixels\",\"quiz_image_height\":\"\",\"quiz_bg_img_on_start_page\":\"off\",\"quiz_box_shadow_x_offset\":0,\"quiz_box_shadow_y_offset\":0,\"quiz_box_shadow_z_offset\":15,\"quiz_question_text_alignment\":\"center\",\"quiz_arrow_type\":\"default\",\"quiz_show_wrong_answers_first\":\"off\",\"quiz_display_all_questions\":\"off\",\"quiz_timer_red_warning\":\"off\",\"quiz_schedule_timezone\":\"UTC+0\",\"questions_hint_button_value\":\"\",\"quiz_tackers_message\":\"Ce quiz a expir\\u00e9\\u00a0!\",\"quiz_enable_linkedin_share_button\":\"on\",\"quiz_enable_facebook_share_button\":\"on\",\"quiz_enable_twitter_share_button\":\"on\",\"quiz_make_responses_anonymous\":\"off\",\"quiz_make_all_review_link\":\"off\",\"show_questions_numbering\":\"none\",\"quiz_message_before_timer\":\"\",\"enable_password\":\"off\",\"password_quiz\":\"\",\"quiz_password_message\":\"\",\"enable_see_result_confirm_box\":\"off\",\"display_fields_labels\":\"off\",\"enable_full_screen_mode\":\"off\",\"quiz_enable_password_visibility\":\"off\",\"question_mobile_font_size\":16,\"answers_mobile_font_size\":15,\"social_buttons_heading\":\"\",\"quiz_enable_vkontakte_share_button\":\"on\",\"answers_border\":\"on\",\"answers_border_width\":1,\"answers_border_style\":\"solid\",\"answers_border_color\":\"#dddddd\",\"social_links_heading\":\"\",\"quiz_enable_question_category_description\":\"off\",\"answers_margin\":12,\"quiz_message_before_redirect_timer\":\"\",\"buttons_mobile_font_size\":18,\"answers_box_shadow\":\"off\",\"answers_box_shadow_color\":\"#000\",\"quiz_answer_box_shadow_x_offset\":0,\"quiz_answer_box_shadow_y_offset\":0,\"quiz_answer_box_shadow_z_offset\":10,\"quiz_create_author\":1,\"quiz_enable_title_text_shadow\":\"off\",\"quiz_title_text_shadow_color\":\"#333\",\"quiz_title_text_shadow_x_offset\":2,\"quiz_title_text_shadow_y_offset\":2,\"quiz_title_text_shadow_z_offset\":2,\"quiz_show_only_wrong_answers\":\"off\",\"quiz_title_font_size\":28,\"quiz_title_mobile_font_size\":20,\"quiz_password_width\":\"\",\"quiz_review_placeholder_text\":\"\",\"quiz_make_review_required\":\"off\",\"quiz_enable_results_toggle\":\"off\",\"quiz_review_thank_you_message\":\"\",\"quiz_review_enable_comment_field\":\"on\",\"quest_explanation_font_size\":16,\"quest_explanation_mobile_font_size\":16,\"quiz_waiting_time\":\"off\",\"wrong_answers_font_size\":16,\"wrong_answers_mobile_font_size\":16,\"quiz_enable_question_image_zoom\":\"off\",\"right_answers_font_size\":16,\"right_answers_mobile_font_size\":16,\"quiz_display_messages_before_buttons\":\"off\",\"quiz_enable_user_c\\u0570oosing_anonymous_assessment\":\"off\",\"note_text_font_size\":14,\"note_text_mobile_font_size\":14,\"quiz_questions_numbering_by_category\":\"off\",\"quiz_enable_custom_texts_for_buttons\":\"off\",\"quiz_custom_texts_start_button\":\"Start\",\"quiz_custom_texts_next_button\":\"Next\",\"quiz_custom_texts_prev_button\":\"Prev\",\"quiz_custom_texts_clear_button\":\"Clear\",\"quiz_custom_texts_finish_button\":\"Finish\",\"quiz_custom_texts_see_results_button\":\"See Result\",\"quiz_custom_texts_restart_quiz_button\":\"Restart quiz\",\"quiz_custom_texts_send_feedback_button\":\"Send feedback\",\"quiz_custom_texts_load_more_button\":\"Load more\",\"quiz_custom_texts_exit_button\":\"Exit\",\"quiz_custom_texts_check_button\":\"Check\",\"quiz_custom_texts_login_button\":\"Log In\",\"quiz_enable_quiz_category_description\":\"off\",\"quiz_admin_note_text_transform\":\"none\",\"quiz_quest_explanation_text_transform\":\"none\",\"quiz_right_answer_text_transform\":\"none\",\"quiz_wrong_answer_text_transform\":\"none\",\"quiz_admin_note_text_decoration\":\"none\",\"quiz_quest_explanation_text_decoration\":\"none\",\"quiz_right_answers_text_decoration\":\"none\",\"quiz_wrong_answers_text_decoration\":\"none\",\"quiz_admin_note_letter_spacing\":\"0\",\"quiz_bg_img_during_the_quiz\":\"off\",\"quiz_quest_explanation_letter_spacing\":\"0\",\"quiz_right_answers_letter_spacing\":\"0\",\"quiz_wrong_answers_letter_spacing\":\"0\",\"quiz_admin_note_font_weight\":\"normal\",\"quiz_quest_explanation_font_weight\":\"normal\",\"quiz_right_answers_font_weight\":\"normal\",\"quiz_wrong_answers_font_weight\":\"normal\",\"quiz_content_max_width\":90,\"quiz_content_mobile_max_width\":90,\"quiz_timer_warning_text_color\":\"#ff0000\",\"required_fields\":null,\"enable_timer\":\"off\",\"enable_quiz_rate\":\"off\",\"enable_rate_avg\":\"off\",\"enable_box_shadow\":\"on\",\"enable_border\":\"off\",\"quiz_timer_in_title\":\"off\",\"enable_rate_comments\":\"off\",\"enable_restart_button\":\"on\",\"autofill_user_data\":\"off\",\"timer\":100}',NULL);
+INSERT INTO `wp_aysquiz_quizes` VALUES (5,'Quiz CSS Niveau débutant','','',1,'22,23,24,25,26',5,'',1,'{\"quiz_version\":\"6.6.8.5\",\"core_version\":\"6.7.2\",\"php_version\":\"8.2.23\",\"color\":\"#5d6cf9\",\"bg_color\":\"#fff\",\"text_color\":\"#000000\",\"height\":250,\"width\":800,\"enable_logged_users\":\"off\",\"information_form\":\"disable\",\"form_name\":null,\"form_email\":null,\"form_phone\":null,\"image_width\":\"\",\"image_height\":\"\",\"enable_correction\":\"on\",\"enable_progress_bar\":\"on\",\"enable_questions_result\":\"on\",\"randomize_questions\":\"off\",\"randomize_answers\":\"off\",\"enable_questions_counter\":\"on\",\"enable_restriction_pass\":\"off\",\"restriction_pass_message\":\"\",\"user_role\":[],\"custom_css\":\"\",\"limit_users\":\"off\",\"limitation_message\":\"\",\"redirect_url\":\"\",\"redirection_delay\":0,\"answers_view\":\"list\",\"enable_rtl_direction\":\"off\",\"enable_logged_users_message\":\"\",\"questions_count\":\"\",\"enable_question_bank\":\"off\",\"enable_live_progress_bar\":\"off\",\"enable_percent_view\":\"off\",\"enable_average_statistical\":\"on\",\"enable_next_button\":\"on\",\"enable_previous_button\":\"on\",\"enable_arrows\":\"off\",\"timer_text\":\"\",\"quiz_theme\":\"classic_light\",\"enable_social_buttons\":\"off\",\"result_text\":\"\",\"enable_pass_count\":\"off\",\"hide_score\":\"off\",\"rate_form_title\":\"\",\"box_shadow_color\":\"#c9c9c9\",\"quiz_border_radius\":\"8\",\"quiz_bg_image\":\"\",\"quiz_border_width\":\"1\",\"quiz_border_style\":\"solid\",\"quiz_border_color\":\"#000\",\"quiz_loader\":\"default\",\"create_date\":\"2025-03-10 00:25:46\",\"author\":\"{\\\"id\\\":\\\"1\\\",\\\"name\\\":\\\"WebLearn\\\"}\",\"quest_animation\":\"shake\",\"form_title\":\"\",\"enable_bg_music\":\"off\",\"quiz_bg_music\":\"\",\"answers_font_size\":15,\"show_create_date\":\"off\",\"show_author\":\"off\",\"enable_early_finish\":\"off\",\"answers_rw_texts\":\"on_passing\",\"disable_store_data\":\"off\",\"enable_background_gradient\":\"on\",\"background_gradient_color_1\":\"rgba(12,75,183,0.76)\",\"background_gradient_color_2\":\"#fff\",\"quiz_gradient_direction\":\"vertical\",\"redirect_after_submit\":\"off\",\"submit_redirect_url\":\"\",\"submit_redirect_delay\":\"0\",\"progress_bar_style\":\"third\",\"enable_exit_button\":\"off\",\"exit_redirect_url\":\"\",\"image_sizing\":\"cover\",\"quiz_bg_image_position\":\"center center\",\"custom_class\":\"\",\"enable_social_links\":\"off\",\"social_links\":{\"linkedin_link\":\"\",\"facebook_link\":\"\",\"twitter_link\":\"\",\"vkontakte_link\":\"\",\"instagram_link\":\"\",\"youtube_link\":\"\",\"behance_link\":\"\"},\"show_quiz_title\":\"on\",\"show_quiz_desc\":\"on\",\"show_login_form\":\"off\",\"mobile_max_width\":\"\",\"limit_users_by\":\"ip\",\"active_date_check\":\"off\",\"activeInterval\":\"2025-03-10 01:31:03\",\"deactiveInterval\":\"2025-03-10 01:31:03\",\"active_date_pre_start_message\":\"Le quiz sera bient\\u00f4t disponible\\u00a0!\",\"active_date_message\":\"Le quiz a expir\\u00e9\\u00a0!\",\"explanation_time\":\"4\",\"enable_clear_answer\":\"off\",\"show_category\":\"off\",\"show_question_category\":\"off\",\"display_score\":\"by_percantage\",\"enable_rw_asnwers_sounds\":\"off\",\"ans_right_wrong_icon\":\"style-1\",\"quiz_bg_img_in_finish_page\":\"off\",\"finish_after_wrong_answer\":\"off\",\"after_timer_text\":\"\",\"enable_enter_key\":\"on\",\"buttons_text_color\":\"#ffffff\",\"buttons_position\":\"center\",\"show_questions_explanation\":\"on_results_page\",\"enable_audio_autoplay\":\"off\",\"buttons_size\":\"large\",\"buttons_font_size\":\"18\",\"buttons_width\":\"\",\"buttons_left_right_padding\":\"36\",\"buttons_top_bottom_padding\":\"14\",\"buttons_border_radius\":\"8\",\"enable_leave_page\":\"on\",\"enable_tackers_count\":\"off\",\"tackers_count\":\"\",\"pass_score\":0,\"pass_score_message\":\"<h4 style=\\\"text-align: center\\\">F\\u00e9licitations\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous avez r\\u00e9ussi le quiz\\u00a0!<\\/p>\",\"fail_score_message\":\"<h4 style=\\\"text-align: center\\\">Oups\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous n\\u2019avez pas r\\u00e9ussi le quiz\\u00a0!\\r\\nR\\u00e9essayez\\u00a0!<\\/p>\",\"question_font_size\":16,\"quiz_width_by_percentage_px\":\"pixels\",\"questions_hint_icon_or_text\":\"default\",\"questions_hint_value\":\"\",\"enable_early_finsh_comfirm_box\":\"on\",\"enable_questions_ordering_by_cat\":\"off\",\"show_schedule_timer\":\"off\",\"show_timer_type\":\"countdown\",\"quiz_loader_text_value\":\"\",\"hide_correct_answers\":\"off\",\"show_information_form\":\"on\",\"quiz_loader_custom_gif\":\"\",\"disable_hover_effect\":\"off\",\"quiz_loader_custom_gif_width\":100,\"progress_live_bar_style\":\"default\",\"quiz_title_transformation\":\"uppercase\",\"show_answers_numbering\":\"none\",\"quiz_image_width_by_percentage_px\":\"pixels\",\"quiz_image_height\":\"\",\"quiz_bg_img_on_start_page\":\"off\",\"quiz_box_shadow_x_offset\":0,\"quiz_box_shadow_y_offset\":0,\"quiz_box_shadow_z_offset\":15,\"quiz_question_text_alignment\":\"center\",\"quiz_arrow_type\":\"default\",\"quiz_show_wrong_answers_first\":\"off\",\"quiz_display_all_questions\":\"off\",\"quiz_timer_red_warning\":\"off\",\"quiz_schedule_timezone\":\"UTC+0\",\"questions_hint_button_value\":\"\",\"quiz_tackers_message\":\"Ce quiz a expir\\u00e9\\u00a0!\",\"quiz_enable_linkedin_share_button\":\"on\",\"quiz_enable_facebook_share_button\":\"on\",\"quiz_enable_twitter_share_button\":\"on\",\"quiz_make_responses_anonymous\":\"off\",\"quiz_make_all_review_link\":\"off\",\"show_questions_numbering\":\"none\",\"quiz_message_before_timer\":\"\",\"enable_password\":\"off\",\"password_quiz\":\"\",\"quiz_password_message\":\"\",\"enable_see_result_confirm_box\":\"off\",\"display_fields_labels\":\"off\",\"enable_full_screen_mode\":\"off\",\"quiz_enable_password_visibility\":\"off\",\"question_mobile_font_size\":16,\"answers_mobile_font_size\":15,\"social_buttons_heading\":\"\",\"quiz_enable_vkontakte_share_button\":\"on\",\"answers_border\":\"on\",\"answers_border_width\":1,\"answers_border_style\":\"solid\",\"answers_border_color\":\"#dddddd\",\"social_links_heading\":\"\",\"quiz_enable_question_category_description\":\"off\",\"answers_margin\":12,\"quiz_message_before_redirect_timer\":\"\",\"buttons_mobile_font_size\":18,\"answers_box_shadow\":\"off\",\"answers_box_shadow_color\":\"#000\",\"quiz_answer_box_shadow_x_offset\":0,\"quiz_answer_box_shadow_y_offset\":0,\"quiz_answer_box_shadow_z_offset\":10,\"quiz_create_author\":1,\"quiz_enable_title_text_shadow\":\"off\",\"quiz_title_text_shadow_color\":\"#333\",\"quiz_title_text_shadow_x_offset\":2,\"quiz_title_text_shadow_y_offset\":2,\"quiz_title_text_shadow_z_offset\":2,\"quiz_show_only_wrong_answers\":\"off\",\"quiz_title_font_size\":28,\"quiz_title_mobile_font_size\":20,\"quiz_password_width\":\"\",\"quiz_review_placeholder_text\":\"\",\"quiz_make_review_required\":\"off\",\"quiz_enable_results_toggle\":\"off\",\"quiz_review_thank_you_message\":\"\",\"quiz_review_enable_comment_field\":\"on\",\"quest_explanation_font_size\":16,\"quest_explanation_mobile_font_size\":16,\"quiz_waiting_time\":\"off\",\"wrong_answers_font_size\":16,\"wrong_answers_mobile_font_size\":16,\"quiz_enable_question_image_zoom\":\"off\",\"right_answers_font_size\":16,\"right_answers_mobile_font_size\":16,\"quiz_display_messages_before_buttons\":\"off\",\"quiz_enable_user_c\\u0570oosing_anonymous_assessment\":\"off\",\"note_text_font_size\":14,\"note_text_mobile_font_size\":14,\"quiz_questions_numbering_by_category\":\"off\",\"quiz_enable_custom_texts_for_buttons\":\"off\",\"quiz_custom_texts_start_button\":\"Start\",\"quiz_custom_texts_next_button\":\"Next\",\"quiz_custom_texts_prev_button\":\"Prev\",\"quiz_custom_texts_clear_button\":\"Clear\",\"quiz_custom_texts_finish_button\":\"Finish\",\"quiz_custom_texts_see_results_button\":\"See Result\",\"quiz_custom_texts_restart_quiz_button\":\"Restart quiz\",\"quiz_custom_texts_send_feedback_button\":\"Send feedback\",\"quiz_custom_texts_load_more_button\":\"Load more\",\"quiz_custom_texts_exit_button\":\"Exit\",\"quiz_custom_texts_check_button\":\"Check\",\"quiz_custom_texts_login_button\":\"Log In\",\"quiz_enable_quiz_category_description\":\"off\",\"quiz_admin_note_text_transform\":\"none\",\"quiz_quest_explanation_text_transform\":\"none\",\"quiz_right_answer_text_transform\":\"none\",\"quiz_wrong_answer_text_transform\":\"none\",\"quiz_admin_note_text_decoration\":\"none\",\"quiz_quest_explanation_text_decoration\":\"none\",\"quiz_right_answers_text_decoration\":\"none\",\"quiz_wrong_answers_text_decoration\":\"none\",\"quiz_admin_note_letter_spacing\":\"0\",\"quiz_bg_img_during_the_quiz\":\"off\",\"quiz_quest_explanation_letter_spacing\":\"0\",\"quiz_right_answers_letter_spacing\":\"0\",\"quiz_wrong_answers_letter_spacing\":\"0\",\"quiz_admin_note_font_weight\":\"normal\",\"quiz_quest_explanation_font_weight\":\"normal\",\"quiz_right_answers_font_weight\":\"normal\",\"quiz_wrong_answers_font_weight\":\"normal\",\"quiz_content_max_width\":90,\"quiz_content_mobile_max_width\":90,\"quiz_timer_warning_text_color\":\"#ff0000\",\"required_fields\":null,\"enable_timer\":\"off\",\"enable_quiz_rate\":\"off\",\"enable_rate_avg\":\"off\",\"enable_box_shadow\":\"on\",\"enable_border\":\"off\",\"quiz_timer_in_title\":\"off\",\"enable_rate_comments\":\"off\",\"enable_restart_button\":\"on\",\"autofill_user_data\":\"off\",\"timer\":100}',NULL);
+INSERT INTO `wp_aysquiz_quizes` VALUES (6,'Quiz CSS Niveau Moyen','','',1,'27,28,29,30,31',6,'',1,'{\"quiz_version\":\"6.6.8.5\",\"core_version\":\"6.7.2\",\"php_version\":\"8.2.23\",\"color\":\"#5d6cf9\",\"bg_color\":\"#fff\",\"text_color\":\"#000000\",\"height\":250,\"width\":800,\"enable_logged_users\":\"off\",\"information_form\":\"disable\",\"form_name\":null,\"form_email\":null,\"form_phone\":null,\"image_width\":\"\",\"image_height\":\"\",\"enable_correction\":\"on\",\"enable_progress_bar\":\"on\",\"enable_questions_result\":\"on\",\"randomize_questions\":\"off\",\"randomize_answers\":\"off\",\"enable_questions_counter\":\"on\",\"enable_restriction_pass\":\"off\",\"restriction_pass_message\":\"\",\"user_role\":[],\"custom_css\":\"\",\"limit_users\":\"off\",\"limitation_message\":\"\",\"redirect_url\":\"\",\"redirection_delay\":0,\"answers_view\":\"list\",\"enable_rtl_direction\":\"off\",\"enable_logged_users_message\":\"\",\"questions_count\":\"\",\"enable_question_bank\":\"off\",\"enable_live_progress_bar\":\"off\",\"enable_percent_view\":\"off\",\"enable_average_statistical\":\"on\",\"enable_next_button\":\"on\",\"enable_previous_button\":\"on\",\"enable_arrows\":\"off\",\"timer_text\":\"\",\"quiz_theme\":\"classic_light\",\"enable_social_buttons\":\"off\",\"result_text\":\"\",\"enable_pass_count\":\"off\",\"hide_score\":\"off\",\"rate_form_title\":\"\",\"box_shadow_color\":\"#c9c9c9\",\"quiz_border_radius\":\"8\",\"quiz_bg_image\":\"\",\"quiz_border_width\":\"1\",\"quiz_border_style\":\"solid\",\"quiz_border_color\":\"#000\",\"quiz_loader\":\"default\",\"create_date\":\"2025-03-10 00:32:25\",\"author\":\"{\\\"id\\\":\\\"1\\\",\\\"name\\\":\\\"WebLearn\\\"}\",\"quest_animation\":\"shake\",\"form_title\":\"\",\"enable_bg_music\":\"off\",\"quiz_bg_music\":\"\",\"answers_font_size\":15,\"show_create_date\":\"off\",\"show_author\":\"off\",\"enable_early_finish\":\"off\",\"answers_rw_texts\":\"on_passing\",\"disable_store_data\":\"off\",\"enable_background_gradient\":\"on\",\"background_gradient_color_1\":\"rgba(12,75,183,0.76)\",\"background_gradient_color_2\":\"#fff\",\"quiz_gradient_direction\":\"vertical\",\"redirect_after_submit\":\"off\",\"submit_redirect_url\":\"\",\"submit_redirect_delay\":\"0\",\"progress_bar_style\":\"third\",\"enable_exit_button\":\"off\",\"exit_redirect_url\":\"\",\"image_sizing\":\"cover\",\"quiz_bg_image_position\":\"center center\",\"custom_class\":\"\",\"enable_social_links\":\"off\",\"social_links\":{\"linkedin_link\":\"\",\"facebook_link\":\"\",\"twitter_link\":\"\",\"vkontakte_link\":\"\",\"instagram_link\":\"\",\"youtube_link\":\"\",\"behance_link\":\"\"},\"show_quiz_title\":\"on\",\"show_quiz_desc\":\"on\",\"show_login_form\":\"off\",\"mobile_max_width\":\"\",\"limit_users_by\":\"ip\",\"active_date_check\":\"off\",\"activeInterval\":\"2025-03-10 01:31:25\",\"deactiveInterval\":\"2025-03-10 01:31:25\",\"active_date_pre_start_message\":\"Le quiz sera bient\\u00f4t disponible\\u00a0!\",\"active_date_message\":\"Le quiz a expir\\u00e9\\u00a0!\",\"explanation_time\":\"4\",\"enable_clear_answer\":\"off\",\"show_category\":\"off\",\"show_question_category\":\"off\",\"display_score\":\"by_percantage\",\"enable_rw_asnwers_sounds\":\"off\",\"ans_right_wrong_icon\":\"style-1\",\"quiz_bg_img_in_finish_page\":\"off\",\"finish_after_wrong_answer\":\"off\",\"after_timer_text\":\"\",\"enable_enter_key\":\"on\",\"buttons_text_color\":\"#ffffff\",\"buttons_position\":\"center\",\"show_questions_explanation\":\"on_results_page\",\"enable_audio_autoplay\":\"off\",\"buttons_size\":\"large\",\"buttons_font_size\":\"18\",\"buttons_width\":\"\",\"buttons_left_right_padding\":\"36\",\"buttons_top_bottom_padding\":\"14\",\"buttons_border_radius\":\"8\",\"enable_leave_page\":\"on\",\"enable_tackers_count\":\"off\",\"tackers_count\":\"\",\"pass_score\":0,\"pass_score_message\":\"<h4 style=\\\"text-align: center\\\">F\\u00e9licitations\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous avez r\\u00e9ussi le quiz\\u00a0!<\\/p>\",\"fail_score_message\":\"<h4 style=\\\"text-align: center\\\">Oups\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous n\\u2019avez pas r\\u00e9ussi le quiz\\u00a0!\\r\\nR\\u00e9essayez\\u00a0!<\\/p>\",\"question_font_size\":16,\"quiz_width_by_percentage_px\":\"pixels\",\"questions_hint_icon_or_text\":\"default\",\"questions_hint_value\":\"\",\"enable_early_finsh_comfirm_box\":\"on\",\"enable_questions_ordering_by_cat\":\"off\",\"show_schedule_timer\":\"off\",\"show_timer_type\":\"countdown\",\"quiz_loader_text_value\":\"\",\"hide_correct_answers\":\"off\",\"show_information_form\":\"on\",\"quiz_loader_custom_gif\":\"\",\"disable_hover_effect\":\"off\",\"quiz_loader_custom_gif_width\":100,\"progress_live_bar_style\":\"default\",\"quiz_title_transformation\":\"uppercase\",\"show_answers_numbering\":\"none\",\"quiz_image_width_by_percentage_px\":\"pixels\",\"quiz_image_height\":\"\",\"quiz_bg_img_on_start_page\":\"off\",\"quiz_box_shadow_x_offset\":0,\"quiz_box_shadow_y_offset\":0,\"quiz_box_shadow_z_offset\":15,\"quiz_question_text_alignment\":\"center\",\"quiz_arrow_type\":\"default\",\"quiz_show_wrong_answers_first\":\"off\",\"quiz_display_all_questions\":\"off\",\"quiz_timer_red_warning\":\"off\",\"quiz_schedule_timezone\":\"UTC+0\",\"questions_hint_button_value\":\"\",\"quiz_tackers_message\":\"Ce quiz a expir\\u00e9\\u00a0!\",\"quiz_enable_linkedin_share_button\":\"on\",\"quiz_enable_facebook_share_button\":\"on\",\"quiz_enable_twitter_share_button\":\"on\",\"quiz_make_responses_anonymous\":\"off\",\"quiz_make_all_review_link\":\"off\",\"show_questions_numbering\":\"none\",\"quiz_message_before_timer\":\"\",\"enable_password\":\"off\",\"password_quiz\":\"\",\"quiz_password_message\":\"\",\"enable_see_result_confirm_box\":\"off\",\"display_fields_labels\":\"off\",\"enable_full_screen_mode\":\"off\",\"quiz_enable_password_visibility\":\"off\",\"question_mobile_font_size\":16,\"answers_mobile_font_size\":15,\"social_buttons_heading\":\"\",\"quiz_enable_vkontakte_share_button\":\"on\",\"answers_border\":\"on\",\"answers_border_width\":1,\"answers_border_style\":\"solid\",\"answers_border_color\":\"#dddddd\",\"social_links_heading\":\"\",\"quiz_enable_question_category_description\":\"off\",\"answers_margin\":12,\"quiz_message_before_redirect_timer\":\"\",\"buttons_mobile_font_size\":18,\"answers_box_shadow\":\"off\",\"answers_box_shadow_color\":\"#000\",\"quiz_answer_box_shadow_x_offset\":0,\"quiz_answer_box_shadow_y_offset\":0,\"quiz_answer_box_shadow_z_offset\":10,\"quiz_create_author\":1,\"quiz_enable_title_text_shadow\":\"off\",\"quiz_title_text_shadow_color\":\"#333\",\"quiz_title_text_shadow_x_offset\":2,\"quiz_title_text_shadow_y_offset\":2,\"quiz_title_text_shadow_z_offset\":2,\"quiz_show_only_wrong_answers\":\"off\",\"quiz_title_font_size\":28,\"quiz_title_mobile_font_size\":20,\"quiz_password_width\":\"\",\"quiz_review_placeholder_text\":\"\",\"quiz_make_review_required\":\"off\",\"quiz_enable_results_toggle\":\"off\",\"quiz_review_thank_you_message\":\"\",\"quiz_review_enable_comment_field\":\"on\",\"quest_explanation_font_size\":16,\"quest_explanation_mobile_font_size\":16,\"quiz_waiting_time\":\"off\",\"wrong_answers_font_size\":16,\"wrong_answers_mobile_font_size\":16,\"quiz_enable_question_image_zoom\":\"off\",\"right_answers_font_size\":16,\"right_answers_mobile_font_size\":16,\"quiz_display_messages_before_buttons\":\"off\",\"quiz_enable_user_c\\u0570oosing_anonymous_assessment\":\"off\",\"note_text_font_size\":14,\"note_text_mobile_font_size\":14,\"quiz_questions_numbering_by_category\":\"off\",\"quiz_enable_custom_texts_for_buttons\":\"off\",\"quiz_custom_texts_start_button\":\"Start\",\"quiz_custom_texts_next_button\":\"Next\",\"quiz_custom_texts_prev_button\":\"Prev\",\"quiz_custom_texts_clear_button\":\"Clear\",\"quiz_custom_texts_finish_button\":\"Finish\",\"quiz_custom_texts_see_results_button\":\"See Result\",\"quiz_custom_texts_restart_quiz_button\":\"Restart quiz\",\"quiz_custom_texts_send_feedback_button\":\"Send feedback\",\"quiz_custom_texts_load_more_button\":\"Load more\",\"quiz_custom_texts_exit_button\":\"Exit\",\"quiz_custom_texts_check_button\":\"Check\",\"quiz_custom_texts_login_button\":\"Log In\",\"quiz_enable_quiz_category_description\":\"off\",\"quiz_admin_note_text_transform\":\"none\",\"quiz_quest_explanation_text_transform\":\"none\",\"quiz_right_answer_text_transform\":\"none\",\"quiz_wrong_answer_text_transform\":\"none\",\"quiz_admin_note_text_decoration\":\"none\",\"quiz_quest_explanation_text_decoration\":\"none\",\"quiz_right_answers_text_decoration\":\"none\",\"quiz_wrong_answers_text_decoration\":\"none\",\"quiz_admin_note_letter_spacing\":\"0\",\"quiz_bg_img_during_the_quiz\":\"off\",\"quiz_quest_explanation_letter_spacing\":\"0\",\"quiz_right_answers_letter_spacing\":\"0\",\"quiz_wrong_answers_letter_spacing\":\"0\",\"quiz_admin_note_font_weight\":\"normal\",\"quiz_quest_explanation_font_weight\":\"normal\",\"quiz_right_answers_font_weight\":\"normal\",\"quiz_wrong_answers_font_weight\":\"normal\",\"quiz_content_max_width\":90,\"quiz_content_mobile_max_width\":90,\"quiz_timer_warning_text_color\":\"#ff0000\",\"required_fields\":null,\"enable_timer\":\"off\",\"enable_quiz_rate\":\"off\",\"enable_rate_avg\":\"off\",\"enable_box_shadow\":\"on\",\"enable_border\":\"off\",\"quiz_timer_in_title\":\"off\",\"enable_rate_comments\":\"off\",\"enable_restart_button\":\"on\",\"autofill_user_data\":\"off\",\"timer\":100}',NULL);
+INSERT INTO `wp_aysquiz_quizes` VALUES (7,'Quiz CSS Niveau Difficile','','',1,'32,33,34,35,36',7,'',1,'{\"quiz_version\":\"6.6.8.5\",\"core_version\":\"6.7.2\",\"php_version\":\"8.2.23\",\"color\":\"#5d6cf9\",\"bg_color\":\"#fff\",\"text_color\":\"#000000\",\"height\":250,\"width\":800,\"enable_logged_users\":\"off\",\"information_form\":\"disable\",\"form_name\":null,\"form_email\":null,\"form_phone\":null,\"image_width\":\"\",\"image_height\":\"\",\"enable_correction\":\"on\",\"enable_progress_bar\":\"on\",\"enable_questions_result\":\"on\",\"randomize_questions\":\"off\",\"randomize_answers\":\"off\",\"enable_questions_counter\":\"on\",\"enable_restriction_pass\":\"off\",\"restriction_pass_message\":\"\",\"user_role\":[],\"custom_css\":\"\",\"limit_users\":\"off\",\"limitation_message\":\"\",\"redirect_url\":\"\",\"redirection_delay\":0,\"answers_view\":\"list\",\"enable_rtl_direction\":\"off\",\"enable_logged_users_message\":\"\",\"questions_count\":\"\",\"enable_question_bank\":\"off\",\"enable_live_progress_bar\":\"off\",\"enable_percent_view\":\"off\",\"enable_average_statistical\":\"on\",\"enable_next_button\":\"on\",\"enable_previous_button\":\"on\",\"enable_arrows\":\"off\",\"timer_text\":\"\",\"quiz_theme\":\"classic_light\",\"enable_social_buttons\":\"off\",\"result_text\":\"\",\"enable_pass_count\":\"off\",\"hide_score\":\"off\",\"rate_form_title\":\"\",\"box_shadow_color\":\"#c9c9c9\",\"quiz_border_radius\":\"8\",\"quiz_bg_image\":\"\",\"quiz_border_width\":\"1\",\"quiz_border_style\":\"solid\",\"quiz_border_color\":\"#000\",\"quiz_loader\":\"default\",\"create_date\":\"2025-03-10 00:37:58\",\"author\":\"{\\\"id\\\":\\\"1\\\",\\\"name\\\":\\\"WebLearn\\\"}\",\"quest_animation\":\"shake\",\"form_title\":\"\",\"enable_bg_music\":\"off\",\"quiz_bg_music\":\"\",\"answers_font_size\":15,\"show_create_date\":\"off\",\"show_author\":\"off\",\"enable_early_finish\":\"off\",\"answers_rw_texts\":\"on_passing\",\"disable_store_data\":\"off\",\"enable_background_gradient\":\"on\",\"background_gradient_color_1\":\"rgba(12,75,183,0.76)\",\"background_gradient_color_2\":\"#fff\",\"quiz_gradient_direction\":\"vertical\",\"redirect_after_submit\":\"off\",\"submit_redirect_url\":\"\",\"submit_redirect_delay\":\"0\",\"progress_bar_style\":\"third\",\"enable_exit_button\":\"off\",\"exit_redirect_url\":\"\",\"image_sizing\":\"cover\",\"quiz_bg_image_position\":\"center center\",\"custom_class\":\"\",\"enable_social_links\":\"off\",\"social_links\":{\"linkedin_link\":\"\",\"facebook_link\":\"\",\"twitter_link\":\"\",\"vkontakte_link\":\"\",\"instagram_link\":\"\",\"youtube_link\":\"\",\"behance_link\":\"\"},\"show_quiz_title\":\"on\",\"show_quiz_desc\":\"on\",\"show_login_form\":\"off\",\"mobile_max_width\":\"\",\"limit_users_by\":\"ip\",\"active_date_check\":\"off\",\"activeInterval\":\"2025-03-10 01:31:44\",\"deactiveInterval\":\"2025-03-10 01:31:44\",\"active_date_pre_start_message\":\"Le quiz sera bient\\u00f4t disponible\\u00a0!\",\"active_date_message\":\"Le quiz a expir\\u00e9\\u00a0!\",\"explanation_time\":\"4\",\"enable_clear_answer\":\"off\",\"show_category\":\"off\",\"show_question_category\":\"off\",\"display_score\":\"by_percantage\",\"enable_rw_asnwers_sounds\":\"off\",\"ans_right_wrong_icon\":\"style-1\",\"quiz_bg_img_in_finish_page\":\"off\",\"finish_after_wrong_answer\":\"off\",\"after_timer_text\":\"\",\"enable_enter_key\":\"on\",\"buttons_text_color\":\"#ffffff\",\"buttons_position\":\"center\",\"show_questions_explanation\":\"on_results_page\",\"enable_audio_autoplay\":\"off\",\"buttons_size\":\"large\",\"buttons_font_size\":\"18\",\"buttons_width\":\"\",\"buttons_left_right_padding\":\"36\",\"buttons_top_bottom_padding\":\"14\",\"buttons_border_radius\":\"8\",\"enable_leave_page\":\"on\",\"enable_tackers_count\":\"off\",\"tackers_count\":\"\",\"pass_score\":0,\"pass_score_message\":\"<h4 style=\\\"text-align: center\\\">F\\u00e9licitations\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous avez r\\u00e9ussi le quiz\\u00a0!<\\/p>\",\"fail_score_message\":\"<h4 style=\\\"text-align: center\\\">Oups\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous n\\u2019avez pas r\\u00e9ussi le quiz\\u00a0!\\r\\nR\\u00e9essayez\\u00a0!<\\/p>\",\"question_font_size\":16,\"quiz_width_by_percentage_px\":\"pixels\",\"questions_hint_icon_or_text\":\"default\",\"questions_hint_value\":\"\",\"enable_early_finsh_comfirm_box\":\"on\",\"enable_questions_ordering_by_cat\":\"off\",\"show_schedule_timer\":\"off\",\"show_timer_type\":\"countdown\",\"quiz_loader_text_value\":\"\",\"hide_correct_answers\":\"off\",\"show_information_form\":\"on\",\"quiz_loader_custom_gif\":\"\",\"disable_hover_effect\":\"off\",\"quiz_loader_custom_gif_width\":100,\"progress_live_bar_style\":\"default\",\"quiz_title_transformation\":\"uppercase\",\"show_answers_numbering\":\"none\",\"quiz_image_width_by_percentage_px\":\"pixels\",\"quiz_image_height\":\"\",\"quiz_bg_img_on_start_page\":\"off\",\"quiz_box_shadow_x_offset\":0,\"quiz_box_shadow_y_offset\":0,\"quiz_box_shadow_z_offset\":15,\"quiz_question_text_alignment\":\"center\",\"quiz_arrow_type\":\"default\",\"quiz_show_wrong_answers_first\":\"off\",\"quiz_display_all_questions\":\"off\",\"quiz_timer_red_warning\":\"off\",\"quiz_schedule_timezone\":\"UTC+0\",\"questions_hint_button_value\":\"\",\"quiz_tackers_message\":\"Ce quiz a expir\\u00e9\\u00a0!\",\"quiz_enable_linkedin_share_button\":\"on\",\"quiz_enable_facebook_share_button\":\"on\",\"quiz_enable_twitter_share_button\":\"on\",\"quiz_make_responses_anonymous\":\"off\",\"quiz_make_all_review_link\":\"off\",\"show_questions_numbering\":\"none\",\"quiz_message_before_timer\":\"\",\"enable_password\":\"off\",\"password_quiz\":\"\",\"quiz_password_message\":\"\",\"enable_see_result_confirm_box\":\"off\",\"display_fields_labels\":\"off\",\"enable_full_screen_mode\":\"off\",\"quiz_enable_password_visibility\":\"off\",\"question_mobile_font_size\":16,\"answers_mobile_font_size\":15,\"social_buttons_heading\":\"\",\"quiz_enable_vkontakte_share_button\":\"on\",\"answers_border\":\"on\",\"answers_border_width\":1,\"answers_border_style\":\"solid\",\"answers_border_color\":\"#dddddd\",\"social_links_heading\":\"\",\"quiz_enable_question_category_description\":\"off\",\"answers_margin\":12,\"quiz_message_before_redirect_timer\":\"\",\"buttons_mobile_font_size\":18,\"answers_box_shadow\":\"off\",\"answers_box_shadow_color\":\"#000\",\"quiz_answer_box_shadow_x_offset\":0,\"quiz_answer_box_shadow_y_offset\":0,\"quiz_answer_box_shadow_z_offset\":10,\"quiz_create_author\":1,\"quiz_enable_title_text_shadow\":\"off\",\"quiz_title_text_shadow_color\":\"#333\",\"quiz_title_text_shadow_x_offset\":2,\"quiz_title_text_shadow_y_offset\":2,\"quiz_title_text_shadow_z_offset\":2,\"quiz_show_only_wrong_answers\":\"off\",\"quiz_title_font_size\":28,\"quiz_title_mobile_font_size\":20,\"quiz_password_width\":\"\",\"quiz_review_placeholder_text\":\"\",\"quiz_make_review_required\":\"off\",\"quiz_enable_results_toggle\":\"off\",\"quiz_review_thank_you_message\":\"\",\"quiz_review_enable_comment_field\":\"on\",\"quest_explanation_font_size\":16,\"quest_explanation_mobile_font_size\":16,\"quiz_waiting_time\":\"off\",\"wrong_answers_font_size\":16,\"wrong_answers_mobile_font_size\":16,\"quiz_enable_question_image_zoom\":\"off\",\"right_answers_font_size\":16,\"right_answers_mobile_font_size\":16,\"quiz_display_messages_before_buttons\":\"off\",\"quiz_enable_user_c\\u0570oosing_anonymous_assessment\":\"off\",\"note_text_font_size\":14,\"note_text_mobile_font_size\":14,\"quiz_questions_numbering_by_category\":\"off\",\"quiz_enable_custom_texts_for_buttons\":\"off\",\"quiz_custom_texts_start_button\":\"Start\",\"quiz_custom_texts_next_button\":\"Next\",\"quiz_custom_texts_prev_button\":\"Prev\",\"quiz_custom_texts_clear_button\":\"Clear\",\"quiz_custom_texts_finish_button\":\"Finish\",\"quiz_custom_texts_see_results_button\":\"See Result\",\"quiz_custom_texts_restart_quiz_button\":\"Restart quiz\",\"quiz_custom_texts_send_feedback_button\":\"Send feedback\",\"quiz_custom_texts_load_more_button\":\"Load more\",\"quiz_custom_texts_exit_button\":\"Exit\",\"quiz_custom_texts_check_button\":\"Check\",\"quiz_custom_texts_login_button\":\"Log In\",\"quiz_enable_quiz_category_description\":\"off\",\"quiz_admin_note_text_transform\":\"none\",\"quiz_quest_explanation_text_transform\":\"none\",\"quiz_right_answer_text_transform\":\"none\",\"quiz_wrong_answer_text_transform\":\"none\",\"quiz_admin_note_text_decoration\":\"none\",\"quiz_quest_explanation_text_decoration\":\"none\",\"quiz_right_answers_text_decoration\":\"none\",\"quiz_wrong_answers_text_decoration\":\"none\",\"quiz_admin_note_letter_spacing\":\"0\",\"quiz_bg_img_during_the_quiz\":\"off\",\"quiz_quest_explanation_letter_spacing\":\"0\",\"quiz_right_answers_letter_spacing\":\"0\",\"quiz_wrong_answers_letter_spacing\":\"0\",\"quiz_admin_note_font_weight\":\"normal\",\"quiz_quest_explanation_font_weight\":\"normal\",\"quiz_right_answers_font_weight\":\"normal\",\"quiz_wrong_answers_font_weight\":\"normal\",\"quiz_content_max_width\":90,\"quiz_content_mobile_max_width\":90,\"quiz_timer_warning_text_color\":\"#ff0000\",\"required_fields\":null,\"enable_timer\":\"off\",\"enable_quiz_rate\":\"off\",\"enable_rate_avg\":\"off\",\"enable_box_shadow\":\"on\",\"enable_border\":\"off\",\"quiz_timer_in_title\":\"off\",\"enable_rate_comments\":\"off\",\"enable_restart_button\":\"on\",\"autofill_user_data\":\"off\",\"timer\":100}',NULL);
+INSERT INTO `wp_aysquiz_quizes` VALUES (8,'Quiz JavaScript Niveau Débutant','','',1,'37,38,39,40,41',8,'',1,'{\"quiz_version\":\"6.6.8.5\",\"core_version\":\"6.7.2\",\"php_version\":\"8.2.23\",\"color\":\"#5d6cf9\",\"bg_color\":\"#fff\",\"text_color\":\"#000000\",\"height\":250,\"width\":800,\"enable_logged_users\":\"off\",\"information_form\":\"disable\",\"form_name\":null,\"form_email\":null,\"form_phone\":null,\"image_width\":\"\",\"image_height\":\"\",\"enable_correction\":\"on\",\"enable_progress_bar\":\"on\",\"enable_questions_result\":\"on\",\"randomize_questions\":\"off\",\"randomize_answers\":\"off\",\"enable_questions_counter\":\"on\",\"enable_restriction_pass\":\"off\",\"restriction_pass_message\":\"\",\"user_role\":[],\"custom_css\":\"\",\"limit_users\":\"off\",\"limitation_message\":\"\",\"redirect_url\":\"\",\"redirection_delay\":0,\"answers_view\":\"list\",\"enable_rtl_direction\":\"off\",\"enable_logged_users_message\":\"\",\"questions_count\":\"\",\"enable_question_bank\":\"off\",\"enable_live_progress_bar\":\"off\",\"enable_percent_view\":\"off\",\"enable_average_statistical\":\"on\",\"enable_next_button\":\"on\",\"enable_previous_button\":\"on\",\"enable_arrows\":\"off\",\"timer_text\":\"\",\"quiz_theme\":\"classic_light\",\"enable_social_buttons\":\"off\",\"result_text\":\"\",\"enable_pass_count\":\"off\",\"hide_score\":\"off\",\"rate_form_title\":\"\",\"box_shadow_color\":\"#c9c9c9\",\"quiz_border_radius\":\"8\",\"quiz_bg_image\":\"\",\"quiz_border_width\":\"1\",\"quiz_border_style\":\"solid\",\"quiz_border_color\":\"#000\",\"quiz_loader\":\"default\",\"create_date\":\"2025-03-10 00:57:57\",\"author\":\"{\\\"id\\\":\\\"1\\\",\\\"name\\\":\\\"WebLearn\\\"}\",\"quest_animation\":\"shake\",\"form_title\":\"\",\"enable_bg_music\":\"off\",\"quiz_bg_music\":\"\",\"answers_font_size\":15,\"show_create_date\":\"off\",\"show_author\":\"off\",\"enable_early_finish\":\"off\",\"answers_rw_texts\":\"on_passing\",\"disable_store_data\":\"off\",\"enable_background_gradient\":\"on\",\"background_gradient_color_1\":\"rgba(12,75,183,0.76)\",\"background_gradient_color_2\":\"#fff\",\"quiz_gradient_direction\":\"vertical\",\"redirect_after_submit\":\"off\",\"submit_redirect_url\":\"\",\"submit_redirect_delay\":\"0\",\"progress_bar_style\":\"third\",\"enable_exit_button\":\"off\",\"exit_redirect_url\":\"\",\"image_sizing\":\"cover\",\"quiz_bg_image_position\":\"center center\",\"custom_class\":\"\",\"enable_social_links\":\"off\",\"social_links\":{\"linkedin_link\":\"\",\"facebook_link\":\"\",\"twitter_link\":\"\",\"vkontakte_link\":\"\",\"instagram_link\":\"\",\"youtube_link\":\"\",\"behance_link\":\"\"},\"show_quiz_title\":\"on\",\"show_quiz_desc\":\"on\",\"show_login_form\":\"off\",\"mobile_max_width\":\"\",\"limit_users_by\":\"ip\",\"active_date_check\":\"off\",\"activeInterval\":\"2025-03-10 01:32:06\",\"deactiveInterval\":\"2025-03-10 01:32:06\",\"active_date_pre_start_message\":\"Le quiz sera bient\\u00f4t disponible\\u00a0!\",\"active_date_message\":\"Le quiz a expir\\u00e9\\u00a0!\",\"explanation_time\":\"4\",\"enable_clear_answer\":\"off\",\"show_category\":\"off\",\"show_question_category\":\"off\",\"display_score\":\"by_percantage\",\"enable_rw_asnwers_sounds\":\"off\",\"ans_right_wrong_icon\":\"style-1\",\"quiz_bg_img_in_finish_page\":\"off\",\"finish_after_wrong_answer\":\"off\",\"after_timer_text\":\"\",\"enable_enter_key\":\"on\",\"buttons_text_color\":\"#ffffff\",\"buttons_position\":\"center\",\"show_questions_explanation\":\"on_results_page\",\"enable_audio_autoplay\":\"off\",\"buttons_size\":\"large\",\"buttons_font_size\":\"18\",\"buttons_width\":\"\",\"buttons_left_right_padding\":\"36\",\"buttons_top_bottom_padding\":\"14\",\"buttons_border_radius\":\"8\",\"enable_leave_page\":\"on\",\"enable_tackers_count\":\"off\",\"tackers_count\":\"\",\"pass_score\":0,\"pass_score_message\":\"<h4 style=\\\"text-align: center\\\">F\\u00e9licitations\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous avez r\\u00e9ussi le quiz\\u00a0!<\\/p>\",\"fail_score_message\":\"<h4 style=\\\"text-align: center\\\">Oups\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous n\\u2019avez pas r\\u00e9ussi le quiz\\u00a0!\\r\\nR\\u00e9essayez\\u00a0!<\\/p>\",\"question_font_size\":16,\"quiz_width_by_percentage_px\":\"pixels\",\"questions_hint_icon_or_text\":\"default\",\"questions_hint_value\":\"\",\"enable_early_finsh_comfirm_box\":\"on\",\"enable_questions_ordering_by_cat\":\"off\",\"show_schedule_timer\":\"off\",\"show_timer_type\":\"countdown\",\"quiz_loader_text_value\":\"\",\"hide_correct_answers\":\"off\",\"show_information_form\":\"on\",\"quiz_loader_custom_gif\":\"\",\"disable_hover_effect\":\"off\",\"quiz_loader_custom_gif_width\":100,\"progress_live_bar_style\":\"default\",\"quiz_title_transformation\":\"uppercase\",\"show_answers_numbering\":\"none\",\"quiz_image_width_by_percentage_px\":\"pixels\",\"quiz_image_height\":\"\",\"quiz_bg_img_on_start_page\":\"off\",\"quiz_box_shadow_x_offset\":0,\"quiz_box_shadow_y_offset\":0,\"quiz_box_shadow_z_offset\":15,\"quiz_question_text_alignment\":\"center\",\"quiz_arrow_type\":\"default\",\"quiz_show_wrong_answers_first\":\"off\",\"quiz_display_all_questions\":\"off\",\"quiz_timer_red_warning\":\"off\",\"quiz_schedule_timezone\":\"UTC+0\",\"questions_hint_button_value\":\"\",\"quiz_tackers_message\":\"Ce quiz a expir\\u00e9\\u00a0!\",\"quiz_enable_linkedin_share_button\":\"on\",\"quiz_enable_facebook_share_button\":\"on\",\"quiz_enable_twitter_share_button\":\"on\",\"quiz_make_responses_anonymous\":\"off\",\"quiz_make_all_review_link\":\"off\",\"show_questions_numbering\":\"none\",\"quiz_message_before_timer\":\"\",\"enable_password\":\"off\",\"password_quiz\":\"\",\"quiz_password_message\":\"\",\"enable_see_result_confirm_box\":\"off\",\"display_fields_labels\":\"off\",\"enable_full_screen_mode\":\"off\",\"quiz_enable_password_visibility\":\"off\",\"question_mobile_font_size\":16,\"answers_mobile_font_size\":15,\"social_buttons_heading\":\"\",\"quiz_enable_vkontakte_share_button\":\"on\",\"answers_border\":\"on\",\"answers_border_width\":1,\"answers_border_style\":\"solid\",\"answers_border_color\":\"#dddddd\",\"social_links_heading\":\"\",\"quiz_enable_question_category_description\":\"off\",\"answers_margin\":12,\"quiz_message_before_redirect_timer\":\"\",\"buttons_mobile_font_size\":18,\"answers_box_shadow\":\"off\",\"answers_box_shadow_color\":\"#000\",\"quiz_answer_box_shadow_x_offset\":0,\"quiz_answer_box_shadow_y_offset\":0,\"quiz_answer_box_shadow_z_offset\":10,\"quiz_create_author\":1,\"quiz_enable_title_text_shadow\":\"off\",\"quiz_title_text_shadow_color\":\"#333\",\"quiz_title_text_shadow_x_offset\":2,\"quiz_title_text_shadow_y_offset\":2,\"quiz_title_text_shadow_z_offset\":2,\"quiz_show_only_wrong_answers\":\"off\",\"quiz_title_font_size\":28,\"quiz_title_mobile_font_size\":20,\"quiz_password_width\":\"\",\"quiz_review_placeholder_text\":\"\",\"quiz_make_review_required\":\"off\",\"quiz_enable_results_toggle\":\"off\",\"quiz_review_thank_you_message\":\"\",\"quiz_review_enable_comment_field\":\"on\",\"quest_explanation_font_size\":16,\"quest_explanation_mobile_font_size\":16,\"quiz_waiting_time\":\"off\",\"wrong_answers_font_size\":16,\"wrong_answers_mobile_font_size\":16,\"quiz_enable_question_image_zoom\":\"off\",\"right_answers_font_size\":16,\"right_answers_mobile_font_size\":16,\"quiz_display_messages_before_buttons\":\"off\",\"quiz_enable_user_c\\u0570oosing_anonymous_assessment\":\"off\",\"note_text_font_size\":14,\"note_text_mobile_font_size\":14,\"quiz_questions_numbering_by_category\":\"off\",\"quiz_enable_custom_texts_for_buttons\":\"off\",\"quiz_custom_texts_start_button\":\"Start\",\"quiz_custom_texts_next_button\":\"Next\",\"quiz_custom_texts_prev_button\":\"Prev\",\"quiz_custom_texts_clear_button\":\"Clear\",\"quiz_custom_texts_finish_button\":\"Finish\",\"quiz_custom_texts_see_results_button\":\"See Result\",\"quiz_custom_texts_restart_quiz_button\":\"Restart quiz\",\"quiz_custom_texts_send_feedback_button\":\"Send feedback\",\"quiz_custom_texts_load_more_button\":\"Load more\",\"quiz_custom_texts_exit_button\":\"Exit\",\"quiz_custom_texts_check_button\":\"Check\",\"quiz_custom_texts_login_button\":\"Log In\",\"quiz_enable_quiz_category_description\":\"off\",\"quiz_admin_note_text_transform\":\"none\",\"quiz_quest_explanation_text_transform\":\"none\",\"quiz_right_answer_text_transform\":\"none\",\"quiz_wrong_answer_text_transform\":\"none\",\"quiz_admin_note_text_decoration\":\"none\",\"quiz_quest_explanation_text_decoration\":\"none\",\"quiz_right_answers_text_decoration\":\"none\",\"quiz_wrong_answers_text_decoration\":\"none\",\"quiz_admin_note_letter_spacing\":\"0\",\"quiz_bg_img_during_the_quiz\":\"off\",\"quiz_quest_explanation_letter_spacing\":\"0\",\"quiz_right_answers_letter_spacing\":\"0\",\"quiz_wrong_answers_letter_spacing\":\"0\",\"quiz_admin_note_font_weight\":\"normal\",\"quiz_quest_explanation_font_weight\":\"normal\",\"quiz_right_answers_font_weight\":\"normal\",\"quiz_wrong_answers_font_weight\":\"normal\",\"quiz_content_max_width\":90,\"quiz_content_mobile_max_width\":90,\"quiz_timer_warning_text_color\":\"#ff0000\",\"required_fields\":null,\"enable_timer\":\"off\",\"enable_quiz_rate\":\"off\",\"enable_rate_avg\":\"off\",\"enable_box_shadow\":\"on\",\"enable_border\":\"off\",\"quiz_timer_in_title\":\"off\",\"enable_rate_comments\":\"off\",\"enable_restart_button\":\"on\",\"autofill_user_data\":\"off\",\"timer\":100}',NULL);
+INSERT INTO `wp_aysquiz_quizes` VALUES (9,'Quiz JavaScript Niveau Moyen','','',1,'42,43,44,45,46',9,'',1,'{\"quiz_version\":\"6.6.8.5\",\"core_version\":\"6.7.2\",\"php_version\":\"8.2.23\",\"color\":\"#5d6cf9\",\"bg_color\":\"#fff\",\"text_color\":\"#000000\",\"height\":250,\"width\":800,\"enable_logged_users\":\"off\",\"information_form\":\"disable\",\"form_name\":null,\"form_email\":null,\"form_phone\":null,\"image_width\":\"\",\"image_height\":\"\",\"enable_correction\":\"on\",\"enable_progress_bar\":\"on\",\"enable_questions_result\":\"on\",\"randomize_questions\":\"off\",\"randomize_answers\":\"off\",\"enable_questions_counter\":\"on\",\"enable_restriction_pass\":\"off\",\"restriction_pass_message\":\"\",\"user_role\":[],\"custom_css\":\"\",\"limit_users\":\"off\",\"limitation_message\":\"\",\"redirect_url\":\"\",\"redirection_delay\":0,\"answers_view\":\"list\",\"enable_rtl_direction\":\"off\",\"enable_logged_users_message\":\"\",\"questions_count\":\"\",\"enable_question_bank\":\"off\",\"enable_live_progress_bar\":\"off\",\"enable_percent_view\":\"off\",\"enable_average_statistical\":\"on\",\"enable_next_button\":\"on\",\"enable_previous_button\":\"on\",\"enable_arrows\":\"off\",\"timer_text\":\"\",\"quiz_theme\":\"classic_light\",\"enable_social_buttons\":\"off\",\"result_text\":\"\",\"enable_pass_count\":\"off\",\"hide_score\":\"off\",\"rate_form_title\":\"\",\"box_shadow_color\":\"#c9c9c9\",\"quiz_border_radius\":\"8\",\"quiz_bg_image\":\"\",\"quiz_border_width\":\"1\",\"quiz_border_style\":\"solid\",\"quiz_border_color\":\"#000\",\"quiz_loader\":\"default\",\"create_date\":\"2025-03-10 01:08:00\",\"author\":\"{\\\"id\\\":\\\"1\\\",\\\"name\\\":\\\"WebLearn\\\"}\",\"quest_animation\":\"shake\",\"form_title\":\"\",\"enable_bg_music\":\"off\",\"quiz_bg_music\":\"\",\"answers_font_size\":15,\"show_create_date\":\"off\",\"show_author\":\"off\",\"enable_early_finish\":\"off\",\"answers_rw_texts\":\"on_passing\",\"disable_store_data\":\"off\",\"enable_background_gradient\":\"on\",\"background_gradient_color_1\":\"rgba(12,75,183,0.76)\",\"background_gradient_color_2\":\"#fff\",\"quiz_gradient_direction\":\"vertical\",\"redirect_after_submit\":\"off\",\"submit_redirect_url\":\"\",\"submit_redirect_delay\":\"0\",\"progress_bar_style\":\"third\",\"enable_exit_button\":\"off\",\"exit_redirect_url\":\"\",\"image_sizing\":\"cover\",\"quiz_bg_image_position\":\"center center\",\"custom_class\":\"\",\"enable_social_links\":\"off\",\"social_links\":{\"linkedin_link\":\"\",\"facebook_link\":\"\",\"twitter_link\":\"\",\"vkontakte_link\":\"\",\"instagram_link\":\"\",\"youtube_link\":\"\",\"behance_link\":\"\"},\"show_quiz_title\":\"on\",\"show_quiz_desc\":\"on\",\"show_login_form\":\"off\",\"mobile_max_width\":\"\",\"limit_users_by\":\"ip\",\"active_date_check\":\"off\",\"activeInterval\":\"2025-03-10 01:32:24\",\"deactiveInterval\":\"2025-03-10 01:32:24\",\"active_date_pre_start_message\":\"Le quiz sera bient\\u00f4t disponible\\u00a0!\",\"active_date_message\":\"Le quiz a expir\\u00e9\\u00a0!\",\"explanation_time\":\"4\",\"enable_clear_answer\":\"off\",\"show_category\":\"off\",\"show_question_category\":\"off\",\"display_score\":\"by_percantage\",\"enable_rw_asnwers_sounds\":\"off\",\"ans_right_wrong_icon\":\"style-1\",\"quiz_bg_img_in_finish_page\":\"off\",\"finish_after_wrong_answer\":\"off\",\"after_timer_text\":\"\",\"enable_enter_key\":\"on\",\"buttons_text_color\":\"#ffffff\",\"buttons_position\":\"center\",\"show_questions_explanation\":\"on_results_page\",\"enable_audio_autoplay\":\"off\",\"buttons_size\":\"large\",\"buttons_font_size\":\"18\",\"buttons_width\":\"\",\"buttons_left_right_padding\":\"36\",\"buttons_top_bottom_padding\":\"14\",\"buttons_border_radius\":\"8\",\"enable_leave_page\":\"on\",\"enable_tackers_count\":\"off\",\"tackers_count\":\"\",\"pass_score\":0,\"pass_score_message\":\"<h4 style=\\\"text-align: center\\\">F\\u00e9licitations\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous avez r\\u00e9ussi le quiz\\u00a0!<\\/p>\",\"fail_score_message\":\"<h4 style=\\\"text-align: center\\\">Oups\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous n\\u2019avez pas r\\u00e9ussi le quiz\\u00a0!\\r\\nR\\u00e9essayez\\u00a0!<\\/p>\",\"question_font_size\":16,\"quiz_width_by_percentage_px\":\"pixels\",\"questions_hint_icon_or_text\":\"default\",\"questions_hint_value\":\"\",\"enable_early_finsh_comfirm_box\":\"on\",\"enable_questions_ordering_by_cat\":\"off\",\"show_schedule_timer\":\"off\",\"show_timer_type\":\"countdown\",\"quiz_loader_text_value\":\"\",\"hide_correct_answers\":\"off\",\"show_information_form\":\"on\",\"quiz_loader_custom_gif\":\"\",\"disable_hover_effect\":\"off\",\"quiz_loader_custom_gif_width\":100,\"progress_live_bar_style\":\"default\",\"quiz_title_transformation\":\"uppercase\",\"show_answers_numbering\":\"none\",\"quiz_image_width_by_percentage_px\":\"pixels\",\"quiz_image_height\":\"\",\"quiz_bg_img_on_start_page\":\"off\",\"quiz_box_shadow_x_offset\":0,\"quiz_box_shadow_y_offset\":0,\"quiz_box_shadow_z_offset\":15,\"quiz_question_text_alignment\":\"center\",\"quiz_arrow_type\":\"default\",\"quiz_show_wrong_answers_first\":\"off\",\"quiz_display_all_questions\":\"off\",\"quiz_timer_red_warning\":\"off\",\"quiz_schedule_timezone\":\"UTC+0\",\"questions_hint_button_value\":\"\",\"quiz_tackers_message\":\"Ce quiz a expir\\u00e9\\u00a0!\",\"quiz_enable_linkedin_share_button\":\"on\",\"quiz_enable_facebook_share_button\":\"on\",\"quiz_enable_twitter_share_button\":\"on\",\"quiz_make_responses_anonymous\":\"off\",\"quiz_make_all_review_link\":\"off\",\"show_questions_numbering\":\"none\",\"quiz_message_before_timer\":\"\",\"enable_password\":\"off\",\"password_quiz\":\"\",\"quiz_password_message\":\"\",\"enable_see_result_confirm_box\":\"off\",\"display_fields_labels\":\"off\",\"enable_full_screen_mode\":\"off\",\"quiz_enable_password_visibility\":\"off\",\"question_mobile_font_size\":16,\"answers_mobile_font_size\":15,\"social_buttons_heading\":\"\",\"quiz_enable_vkontakte_share_button\":\"on\",\"answers_border\":\"on\",\"answers_border_width\":1,\"answers_border_style\":\"solid\",\"answers_border_color\":\"#dddddd\",\"social_links_heading\":\"\",\"quiz_enable_question_category_description\":\"off\",\"answers_margin\":12,\"quiz_message_before_redirect_timer\":\"\",\"buttons_mobile_font_size\":18,\"answers_box_shadow\":\"off\",\"answers_box_shadow_color\":\"#000\",\"quiz_answer_box_shadow_x_offset\":0,\"quiz_answer_box_shadow_y_offset\":0,\"quiz_answer_box_shadow_z_offset\":10,\"quiz_create_author\":1,\"quiz_enable_title_text_shadow\":\"off\",\"quiz_title_text_shadow_color\":\"#333\",\"quiz_title_text_shadow_x_offset\":2,\"quiz_title_text_shadow_y_offset\":2,\"quiz_title_text_shadow_z_offset\":2,\"quiz_show_only_wrong_answers\":\"off\",\"quiz_title_font_size\":28,\"quiz_title_mobile_font_size\":20,\"quiz_password_width\":\"\",\"quiz_review_placeholder_text\":\"\",\"quiz_make_review_required\":\"off\",\"quiz_enable_results_toggle\":\"off\",\"quiz_review_thank_you_message\":\"\",\"quiz_review_enable_comment_field\":\"on\",\"quest_explanation_font_size\":16,\"quest_explanation_mobile_font_size\":16,\"quiz_waiting_time\":\"off\",\"wrong_answers_font_size\":16,\"wrong_answers_mobile_font_size\":16,\"quiz_enable_question_image_zoom\":\"off\",\"right_answers_font_size\":16,\"right_answers_mobile_font_size\":16,\"quiz_display_messages_before_buttons\":\"off\",\"quiz_enable_user_c\\u0570oosing_anonymous_assessment\":\"off\",\"note_text_font_size\":14,\"note_text_mobile_font_size\":14,\"quiz_questions_numbering_by_category\":\"off\",\"quiz_enable_custom_texts_for_buttons\":\"off\",\"quiz_custom_texts_start_button\":\"Start\",\"quiz_custom_texts_next_button\":\"Next\",\"quiz_custom_texts_prev_button\":\"Prev\",\"quiz_custom_texts_clear_button\":\"Clear\",\"quiz_custom_texts_finish_button\":\"Finish\",\"quiz_custom_texts_see_results_button\":\"See Result\",\"quiz_custom_texts_restart_quiz_button\":\"Restart quiz\",\"quiz_custom_texts_send_feedback_button\":\"Send feedback\",\"quiz_custom_texts_load_more_button\":\"Load more\",\"quiz_custom_texts_exit_button\":\"Exit\",\"quiz_custom_texts_check_button\":\"Check\",\"quiz_custom_texts_login_button\":\"Log In\",\"quiz_enable_quiz_category_description\":\"off\",\"quiz_admin_note_text_transform\":\"none\",\"quiz_quest_explanation_text_transform\":\"none\",\"quiz_right_answer_text_transform\":\"none\",\"quiz_wrong_answer_text_transform\":\"none\",\"quiz_admin_note_text_decoration\":\"none\",\"quiz_quest_explanation_text_decoration\":\"none\",\"quiz_right_answers_text_decoration\":\"none\",\"quiz_wrong_answers_text_decoration\":\"none\",\"quiz_admin_note_letter_spacing\":\"0\",\"quiz_bg_img_during_the_quiz\":\"off\",\"quiz_quest_explanation_letter_spacing\":\"0\",\"quiz_right_answers_letter_spacing\":\"0\",\"quiz_wrong_answers_letter_spacing\":\"0\",\"quiz_admin_note_font_weight\":\"normal\",\"quiz_quest_explanation_font_weight\":\"normal\",\"quiz_right_answers_font_weight\":\"normal\",\"quiz_wrong_answers_font_weight\":\"normal\",\"quiz_content_max_width\":90,\"quiz_content_mobile_max_width\":90,\"quiz_timer_warning_text_color\":\"#ff0000\",\"required_fields\":null,\"enable_timer\":\"off\",\"enable_quiz_rate\":\"off\",\"enable_rate_avg\":\"off\",\"enable_box_shadow\":\"on\",\"enable_border\":\"off\",\"quiz_timer_in_title\":\"off\",\"enable_rate_comments\":\"off\",\"enable_restart_button\":\"on\",\"autofill_user_data\":\"off\",\"timer\":100}',NULL);
+INSERT INTO `wp_aysquiz_quizes` VALUES (10,'Quiz JavaScript Niveau Difficile','','',1,'47,48,49,50,51',10,'',1,'{\"quiz_version\":\"6.6.8.5\",\"core_version\":\"6.7.2\",\"php_version\":\"8.2.23\",\"color\":\"#5d6cf9\",\"bg_color\":\"#fff\",\"text_color\":\"#000000\",\"height\":250,\"width\":800,\"enable_logged_users\":\"off\",\"information_form\":\"disable\",\"form_name\":null,\"form_email\":null,\"form_phone\":null,\"image_width\":\"\",\"image_height\":\"\",\"enable_correction\":\"on\",\"enable_progress_bar\":\"on\",\"enable_questions_result\":\"on\",\"randomize_questions\":\"off\",\"randomize_answers\":\"off\",\"enable_questions_counter\":\"on\",\"enable_restriction_pass\":\"off\",\"restriction_pass_message\":\"\",\"user_role\":[],\"custom_css\":\"\",\"limit_users\":\"off\",\"limitation_message\":\"\",\"redirect_url\":\"\",\"redirection_delay\":0,\"answers_view\":\"list\",\"enable_rtl_direction\":\"off\",\"enable_logged_users_message\":\"\",\"questions_count\":\"\",\"enable_question_bank\":\"off\",\"enable_live_progress_bar\":\"off\",\"enable_percent_view\":\"off\",\"enable_average_statistical\":\"on\",\"enable_next_button\":\"on\",\"enable_previous_button\":\"on\",\"enable_arrows\":\"off\",\"timer_text\":\"\",\"quiz_theme\":\"classic_light\",\"enable_social_buttons\":\"off\",\"result_text\":\"\",\"enable_pass_count\":\"off\",\"hide_score\":\"off\",\"rate_form_title\":\"\",\"box_shadow_color\":\"#c9c9c9\",\"quiz_border_radius\":\"8\",\"quiz_bg_image\":\"\",\"quiz_border_width\":\"1\",\"quiz_border_style\":\"solid\",\"quiz_border_color\":\"#000\",\"quiz_loader\":\"default\",\"create_date\":\"2025-03-10 01:20:42\",\"author\":\"{\\\"id\\\":\\\"1\\\",\\\"name\\\":\\\"WebLearn\\\"}\",\"quest_animation\":\"shake\",\"form_title\":\"\",\"enable_bg_music\":\"off\",\"quiz_bg_music\":\"\",\"answers_font_size\":15,\"show_create_date\":\"off\",\"show_author\":\"off\",\"enable_early_finish\":\"off\",\"answers_rw_texts\":\"on_passing\",\"disable_store_data\":\"off\",\"enable_background_gradient\":\"on\",\"background_gradient_color_1\":\"rgba(12,75,183,0.76)\",\"background_gradient_color_2\":\"#fff\",\"quiz_gradient_direction\":\"vertical\",\"redirect_after_submit\":\"off\",\"submit_redirect_url\":\"\",\"submit_redirect_delay\":\"0\",\"progress_bar_style\":\"third\",\"enable_exit_button\":\"off\",\"exit_redirect_url\":\"\",\"image_sizing\":\"cover\",\"quiz_bg_image_position\":\"center center\",\"custom_class\":\"\",\"enable_social_links\":\"off\",\"social_links\":{\"linkedin_link\":\"\",\"facebook_link\":\"\",\"twitter_link\":\"\",\"vkontakte_link\":\"\",\"instagram_link\":\"\",\"youtube_link\":\"\",\"behance_link\":\"\"},\"show_quiz_title\":\"on\",\"show_quiz_desc\":\"on\",\"show_login_form\":\"off\",\"mobile_max_width\":\"\",\"limit_users_by\":\"ip\",\"active_date_check\":\"off\",\"activeInterval\":\"2025-03-10 01:33:21\",\"deactiveInterval\":\"2025-03-10 01:33:21\",\"active_date_pre_start_message\":\"Le quiz sera bient\\u00f4t disponible\\u00a0!\",\"active_date_message\":\"Le quiz a expir\\u00e9\\u00a0!\",\"explanation_time\":\"4\",\"enable_clear_answer\":\"off\",\"show_category\":\"off\",\"show_question_category\":\"off\",\"display_score\":\"by_percantage\",\"enable_rw_asnwers_sounds\":\"off\",\"ans_right_wrong_icon\":\"style-1\",\"quiz_bg_img_in_finish_page\":\"off\",\"finish_after_wrong_answer\":\"off\",\"after_timer_text\":\"\",\"enable_enter_key\":\"on\",\"buttons_text_color\":\"#ffffff\",\"buttons_position\":\"center\",\"show_questions_explanation\":\"on_results_page\",\"enable_audio_autoplay\":\"off\",\"buttons_size\":\"large\",\"buttons_font_size\":\"20\",\"buttons_width\":\"\",\"buttons_left_right_padding\":\"30\",\"buttons_top_bottom_padding\":\"13\",\"buttons_border_radius\":\"8\",\"enable_leave_page\":\"on\",\"enable_tackers_count\":\"off\",\"tackers_count\":\"\",\"pass_score\":0,\"pass_score_message\":\"<h4 style=\\\"text-align: center\\\">F\\u00e9licitations\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous avez r\\u00e9ussi le quiz\\u00a0!<\\/p>\",\"fail_score_message\":\"<h4 style=\\\"text-align: center\\\">Oups\\u00a0!<\\/h4>\\r\\n<p style=\\\"text-align: center\\\">Vous n\\u2019avez pas r\\u00e9ussi le quiz\\u00a0!\\r\\nR\\u00e9essayez\\u00a0!<\\/p>\",\"question_font_size\":16,\"quiz_width_by_percentage_px\":\"pixels\",\"questions_hint_icon_or_text\":\"default\",\"questions_hint_value\":\"\",\"enable_early_finsh_comfirm_box\":\"on\",\"enable_questions_ordering_by_cat\":\"off\",\"show_schedule_timer\":\"off\",\"show_timer_type\":\"countdown\",\"quiz_loader_text_value\":\"\",\"hide_correct_answers\":\"off\",\"show_information_form\":\"on\",\"quiz_loader_custom_gif\":\"\",\"disable_hover_effect\":\"off\",\"quiz_loader_custom_gif_width\":100,\"progress_live_bar_style\":\"default\",\"quiz_title_transformation\":\"uppercase\",\"show_answers_numbering\":\"none\",\"quiz_image_width_by_percentage_px\":\"pixels\",\"quiz_image_height\":\"\",\"quiz_bg_img_on_start_page\":\"off\",\"quiz_box_shadow_x_offset\":0,\"quiz_box_shadow_y_offset\":0,\"quiz_box_shadow_z_offset\":15,\"quiz_question_text_alignment\":\"center\",\"quiz_arrow_type\":\"default\",\"quiz_show_wrong_answers_first\":\"off\",\"quiz_display_all_questions\":\"off\",\"quiz_timer_red_warning\":\"off\",\"quiz_schedule_timezone\":\"UTC+0\",\"questions_hint_button_value\":\"\",\"quiz_tackers_message\":\"Ce quiz a expir\\u00e9\\u00a0!\",\"quiz_enable_linkedin_share_button\":\"on\",\"quiz_enable_facebook_share_button\":\"on\",\"quiz_enable_twitter_share_button\":\"on\",\"quiz_make_responses_anonymous\":\"off\",\"quiz_make_all_review_link\":\"off\",\"show_questions_numbering\":\"none\",\"quiz_message_before_timer\":\"\",\"enable_password\":\"off\",\"password_quiz\":\"\",\"quiz_password_message\":\"\",\"enable_see_result_confirm_box\":\"off\",\"display_fields_labels\":\"off\",\"enable_full_screen_mode\":\"off\",\"quiz_enable_password_visibility\":\"off\",\"question_mobile_font_size\":16,\"answers_mobile_font_size\":15,\"social_buttons_heading\":\"\",\"quiz_enable_vkontakte_share_button\":\"on\",\"answers_border\":\"on\",\"answers_border_width\":1,\"answers_border_style\":\"solid\",\"answers_border_color\":\"#dddddd\",\"social_links_heading\":\"\",\"quiz_enable_question_category_description\":\"off\",\"answers_margin\":12,\"quiz_message_before_redirect_timer\":\"\",\"buttons_mobile_font_size\":20,\"answers_box_shadow\":\"off\",\"answers_box_shadow_color\":\"#000\",\"quiz_answer_box_shadow_x_offset\":0,\"quiz_answer_box_shadow_y_offset\":0,\"quiz_answer_box_shadow_z_offset\":10,\"quiz_create_author\":1,\"quiz_enable_title_text_shadow\":\"off\",\"quiz_title_text_shadow_color\":\"#333\",\"quiz_title_text_shadow_x_offset\":2,\"quiz_title_text_shadow_y_offset\":2,\"quiz_title_text_shadow_z_offset\":2,\"quiz_show_only_wrong_answers\":\"off\",\"quiz_title_font_size\":28,\"quiz_title_mobile_font_size\":20,\"quiz_password_width\":\"\",\"quiz_review_placeholder_text\":\"\",\"quiz_make_review_required\":\"off\",\"quiz_enable_results_toggle\":\"off\",\"quiz_review_thank_you_message\":\"\",\"quiz_review_enable_comment_field\":\"on\",\"quest_explanation_font_size\":16,\"quest_explanation_mobile_font_size\":16,\"quiz_waiting_time\":\"off\",\"wrong_answers_font_size\":16,\"wrong_answers_mobile_font_size\":16,\"quiz_enable_question_image_zoom\":\"off\",\"right_answers_font_size\":16,\"right_answers_mobile_font_size\":16,\"quiz_display_messages_before_buttons\":\"off\",\"quiz_enable_user_c\\u0570oosing_anonymous_assessment\":\"off\",\"note_text_font_size\":14,\"note_text_mobile_font_size\":14,\"quiz_questions_numbering_by_category\":\"off\",\"quiz_enable_custom_texts_for_buttons\":\"off\",\"quiz_custom_texts_start_button\":\"Start\",\"quiz_custom_texts_next_button\":\"Next\",\"quiz_custom_texts_prev_button\":\"Prev\",\"quiz_custom_texts_clear_button\":\"Clear\",\"quiz_custom_texts_finish_button\":\"Finish\",\"quiz_custom_texts_see_results_button\":\"See Result\",\"quiz_custom_texts_restart_quiz_button\":\"Restart quiz\",\"quiz_custom_texts_send_feedback_button\":\"Send feedback\",\"quiz_custom_texts_load_more_button\":\"Load more\",\"quiz_custom_texts_exit_button\":\"Exit\",\"quiz_custom_texts_check_button\":\"Check\",\"quiz_custom_texts_login_button\":\"Log In\",\"quiz_enable_quiz_category_description\":\"off\",\"quiz_admin_note_text_transform\":\"none\",\"quiz_quest_explanation_text_transform\":\"none\",\"quiz_right_answer_text_transform\":\"none\",\"quiz_wrong_answer_text_transform\":\"none\",\"quiz_admin_note_text_decoration\":\"none\",\"quiz_quest_explanation_text_decoration\":\"none\",\"quiz_right_answers_text_decoration\":\"none\",\"quiz_wrong_answers_text_decoration\":\"none\",\"quiz_admin_note_letter_spacing\":\"0\",\"quiz_bg_img_during_the_quiz\":\"off\",\"quiz_quest_explanation_letter_spacing\":\"0\",\"quiz_right_answers_letter_spacing\":\"0\",\"quiz_wrong_answers_letter_spacing\":\"0\",\"quiz_admin_note_font_weight\":\"normal\",\"quiz_quest_explanation_font_weight\":\"normal\",\"quiz_right_answers_font_weight\":\"normal\",\"quiz_wrong_answers_font_weight\":\"normal\",\"quiz_content_max_width\":90,\"quiz_content_mobile_max_width\":90,\"quiz_timer_warning_text_color\":\"#ff0000\",\"required_fields\":null,\"enable_timer\":\"off\",\"enable_quiz_rate\":\"off\",\"enable_rate_avg\":\"off\",\"enable_box_shadow\":\"on\",\"enable_border\":\"off\",\"quiz_timer_in_title\":\"off\",\"enable_rate_comments\":\"off\",\"enable_restart_button\":\"on\",\"autofill_user_data\":\"off\",\"timer\":100}',NULL);
+/*!40000 ALTER TABLE `wp_aysquiz_quizes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_aysquiz_rates`
+--
+
+DROP TABLE IF EXISTS `wp_aysquiz_rates`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_aysquiz_rates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `quiz_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `user_ip` varchar(256) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `user_name` text COLLATE utf8mb4_unicode_520_ci,
+  `user_email` text COLLATE utf8mb4_unicode_520_ci,
+  `user_phone` text COLLATE utf8mb4_unicode_520_ci,
+  `rate_date` datetime NOT NULL,
+  `score` varchar(256) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `review` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `options` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_aysquiz_rates`
+--
+
+LOCK TABLES `wp_aysquiz_rates` WRITE;
+/*!40000 ALTER TABLE `wp_aysquiz_rates` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wp_aysquiz_rates` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_aysquiz_reports`
+--
+
+DROP TABLE IF EXISTS `wp_aysquiz_reports`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_aysquiz_reports` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `quiz_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `user_ip` varchar(256) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `user_name` text COLLATE utf8mb4_unicode_520_ci,
+  `user_email` text COLLATE utf8mb4_unicode_520_ci,
+  `user_phone` text COLLATE utf8mb4_unicode_520_ci,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime NOT NULL,
+  `duration` varchar(256) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `score` varchar(256) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `options` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `read` tinyint(3) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_aysquiz_reports`
+--
+
+LOCK TABLES `wp_aysquiz_reports` WRITE;
+/*!40000 ALTER TABLE `wp_aysquiz_reports` DISABLE KEYS */;
+INSERT INTO `wp_aysquiz_reports` VALUES (1,2,1,'127.0.0.1','','','','2025-03-10 00:49:26','2025-03-10 00:49:39','13','40','{\"correctness\":{\"question_id_10\":true,\"question_id_9\":false,\"question_id_8\":false,\"question_id_6\":true,\"question_id_7\":false},\"user_answered\":{\"question_id_10\":\"26\",\"question_id_9\":\"23\",\"question_id_8\":\"19\",\"question_id_6\":\"13\",\"question_id_7\":\"21\"},\"passed_time\":\"13 secondes\",\"calc_method\":\"by_correctness\",\"attributes_information\":[]}',0);
+INSERT INTO `wp_aysquiz_reports` VALUES (2,5,1,'127.0.0.1','','','','2025-03-10 16:59:24','2025-03-10 16:59:34','10','20','{\"correctness\":{\"question_id_22\":false,\"question_id_23\":true,\"question_id_24\":false,\"question_id_25\":false,\"question_id_26\":false},\"user_answered\":{\"question_id_22\":\"61\",\"question_id_23\":\"64\",\"question_id_24\":\"68\",\"question_id_25\":\"\",\"question_id_26\":\"73\"},\"passed_time\":\"10 secondes\",\"calc_method\":\"by_correctness\",\"attributes_information\":[]}',0);
+INSERT INTO `wp_aysquiz_reports` VALUES (3,2,1,'127.0.0.1','','','','2025-03-10 17:17:19','2025-03-10 17:17:31','12','20','{\"correctness\":{\"question_id_10\":false,\"question_id_9\":false,\"question_id_8\":false,\"question_id_6\":true,\"question_id_7\":false},\"user_answered\":{\"question_id_10\":\"25\",\"question_id_9\":\"23\",\"question_id_8\":\"18\",\"question_id_6\":\"13\",\"question_id_7\":\"21\"},\"passed_time\":\"12 secondes\",\"calc_method\":\"by_correctness\",\"attributes_information\":[]}',0);
+/*!40000 ALTER TABLE `wp_aysquiz_reports` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_aysquiz_settings`
+--
+
+DROP TABLE IF EXISTS `wp_aysquiz_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_aysquiz_settings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `meta_key` text COLLATE utf8mb4_unicode_520_ci,
+  `meta_value` text COLLATE utf8mb4_unicode_520_ci,
+  `note` text COLLATE utf8mb4_unicode_520_ci,
+  `options` text COLLATE utf8mb4_unicode_520_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_aysquiz_settings`
+--
+
+LOCK TABLES `wp_aysquiz_settings` WRITE;
+/*!40000 ALTER TABLE `wp_aysquiz_settings` DISABLE KEYS */;
+INSERT INTO `wp_aysquiz_settings` VALUES (1,'default_texts','','','');
+INSERT INTO `wp_aysquiz_settings` VALUES (2,'buttons_texts','','','');
+INSERT INTO `wp_aysquiz_settings` VALUES (3,'fields_placeholders','','','');
+INSERT INTO `wp_aysquiz_settings` VALUES (4,'options','','','');
+/*!40000 ALTER TABLE `wp_aysquiz_settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_aysquiz_themes`
+--
+
+DROP TABLE IF EXISTS `wp_aysquiz_themes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_aysquiz_themes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `border_radius` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `show_result_presentage` int(11) NOT NULL,
+  `show_result_answers` int(11) NOT NULL,
+  `buttons_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `buttons_bg_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `buttons_hover_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `buttons_hover_bg_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `quiz_title_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `quiz_description_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `question_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `question_bg_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `question_answer_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `question_answer_bg_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `question_answer_hover_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `question_answer_hover_bg_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `question_correct_answer_bg_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `question_incorrect_answer_bg_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `pagination_bg_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `pagination_color` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_aysquiz_themes`
+--
+
+LOCK TABLES `wp_aysquiz_themes` WRITE;
+/*!40000 ALTER TABLE `wp_aysquiz_themes` DISABLE KEYS */;
+INSERT INTO `wp_aysquiz_themes` VALUES (1,'Default','4',1,1,'#ffffff','#70b1f2','#ffffff','#4797e7','#000000','#000000','#ffffff','#70b1f2','#7a7575','#efefef','#7a7575','#d6d2c9','#4fed24','#ed3324','#efefef','#70b1f2');
+/*!40000 ALTER TABLE `wp_aysquiz_themes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_commentmeta`
+--
+
+DROP TABLE IF EXISTS `wp_commentmeta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_commentmeta` (
+  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `meta_key` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `meta_value` longtext COLLATE utf8mb4_unicode_520_ci,
+  PRIMARY KEY (`meta_id`),
+  KEY `comment_id` (`comment_id`),
+  KEY `meta_key` (`meta_key`(191))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_commentmeta`
+--
+
+LOCK TABLES `wp_commentmeta` WRITE;
+/*!40000 ALTER TABLE `wp_commentmeta` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wp_commentmeta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_comments`
+--
+
+DROP TABLE IF EXISTS `wp_comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_comments` (
+  `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comment_post_ID` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `comment_author` tinytext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `comment_author_email` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_author_url` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_author_IP` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `comment_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `comment_content` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `comment_karma` int(11) NOT NULL DEFAULT '0',
+  `comment_approved` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '1',
+  `comment_agent` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `comment_type` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'comment',
+  `comment_parent` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`comment_ID`),
+  KEY `comment_post_ID` (`comment_post_ID`),
+  KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`),
+  KEY `comment_date_gmt` (`comment_date_gmt`),
+  KEY `comment_parent` (`comment_parent`),
+  KEY `comment_author_email` (`comment_author_email`(10))
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_comments`
+--
+
+LOCK TABLES `wp_comments` WRITE;
+/*!40000 ALTER TABLE `wp_comments` DISABLE KEYS */;
+INSERT INTO `wp_comments` VALUES (1,1,'A WordPress Commenter','wapuu@wordpress.example','https://wordpress.org/','','2025-02-03 21:52:48','2025-02-03 21:52:48','Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=\"https://gravatar.com/\">Gravatar</a>.',0,'1','','comment',0,0);
+INSERT INTO `wp_comments` VALUES (2,1508,'A WordPress Commenter','wapuu@wordpress.example','https://wordpress.org/','','2025-01-02 22:20:57','2025-01-02 22:20:57','Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=\"https://en.gravatar.com/\" rel=\"nofollow ugc\">Gravatar</a>.',0,'1','','comment',0,0);
+INSERT INTO `wp_comments` VALUES (3,1512,'A WordPress Commenter','wapuu@wordpress.example','https://wordpress.org/','','2024-12-15 11:06:06','2024-12-15 11:06:06','Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=\"https://gravatar.com/\" rel=\"nofollow ugc\">Gravatar</a>.',0,'1','','comment',0,0);
+/*!40000 ALTER TABLE `wp_comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_e_events`
+--
+
+DROP TABLE IF EXISTS `wp_e_events`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_e_events` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `event_data` text COLLATE utf8mb4_unicode_520_ci,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `created_at_index` (`created_at`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_e_events`
+--
+
+LOCK TABLES `wp_e_events` WRITE;
+/*!40000 ALTER TABLE `wp_e_events` DISABLE KEYS */;
+INSERT INTO `wp_e_events` VALUES (1,'{\"event\":\"modal load\",\"version\":\"\",\"details\":\"{\\\"placement\\\":\\\"Onboarding wizard\\\",\\\"step\\\":\\\"account\\\",\\\"user_state\\\":\\\"anon\\\"}\",\"ts\":\"2025-02-03T23:21:14.328-01:00\"}','2025-02-03 23:21:14');
+/*!40000 ALTER TABLE `wp_e_events` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_e_notes`
+--
+
+DROP TABLE IF EXISTS `wp_e_notes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_e_notes` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `route_url` text COLLATE utf8mb4_unicode_520_ci COMMENT 'Clean url where the note was created.',
+  `route_title` varchar(255) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `route_post_id` bigint(20) unsigned DEFAULT NULL COMMENT 'The post id of the route that the note was created on.',
+  `post_id` bigint(20) unsigned DEFAULT NULL,
+  `element_id` varchar(60) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL COMMENT 'The Elementor element ID the note is attached to.',
+  `parent_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `author_id` bigint(20) unsigned DEFAULT NULL,
+  `author_display_name` varchar(250) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL COMMENT 'Save the author name when the author was deleted.',
+  `status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'publish',
+  `position` text COLLATE utf8mb4_unicode_520_ci COMMENT 'A JSON string that represents the position of the note inside the element in percentages. e.g. {x:10, y:15}',
+  `content` longtext COLLATE utf8mb4_unicode_520_ci,
+  `is_resolved` tinyint(1) NOT NULL DEFAULT '0',
+  `is_public` tinyint(1) NOT NULL DEFAULT '1',
+  `last_activity_at` datetime DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `route_url_index` (`route_url`(191)),
+  KEY `post_id_index` (`post_id`),
+  KEY `element_id_index` (`element_id`),
+  KEY `parent_id_index` (`parent_id`),
+  KEY `author_id_index` (`author_id`),
+  KEY `status_index` (`status`),
+  KEY `is_resolved_index` (`is_resolved`),
+  KEY `is_public_index` (`is_public`),
+  KEY `created_at_index` (`created_at`),
+  KEY `updated_at_index` (`updated_at`),
+  KEY `last_activity_at_index` (`last_activity_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_e_notes`
+--
+
+LOCK TABLES `wp_e_notes` WRITE;
+/*!40000 ALTER TABLE `wp_e_notes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wp_e_notes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_e_notes_users_relations`
+--
+
+DROP TABLE IF EXISTS `wp_e_notes_users_relations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_e_notes_users_relations` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `type` varchar(60) COLLATE utf8mb4_unicode_520_ci NOT NULL COMMENT 'The relation type between user and note (e.g mention, watch, read).',
+  `note_id` bigint(20) unsigned NOT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `type_index` (`type`),
+  KEY `note_id_index` (`note_id`),
+  KEY `user_id_index` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_e_notes_users_relations`
+--
+
+LOCK TABLES `wp_e_notes_users_relations` WRITE;
+/*!40000 ALTER TABLE `wp_e_notes_users_relations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wp_e_notes_users_relations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_e_submissions`
+--
+
+DROP TABLE IF EXISTS `wp_e_submissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_e_submissions` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `type` varchar(60) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `hash_id` varchar(60) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `main_meta_id` bigint(20) unsigned NOT NULL COMMENT 'Id of main field. to represent the main meta field',
+  `post_id` bigint(20) unsigned NOT NULL,
+  `referer` varchar(500) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `referer_title` varchar(300) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `element_id` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `form_name` varchar(60) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `campaign_id` bigint(20) unsigned NOT NULL,
+  `user_id` bigint(20) unsigned DEFAULT NULL,
+  `user_ip` varchar(46) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `user_agent` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `actions_count` int(11) DEFAULT '0',
+  `actions_succeeded_count` int(11) DEFAULT '0',
+  `status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `is_read` tinyint(1) NOT NULL DEFAULT '0',
+  `meta` text COLLATE utf8mb4_unicode_520_ci,
+  `created_at_gmt` datetime NOT NULL,
+  `updated_at_gmt` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `hash_id_unique_index` (`hash_id`),
+  KEY `main_meta_id_index` (`main_meta_id`),
+  KEY `hash_id_index` (`hash_id`),
+  KEY `type_index` (`type`),
+  KEY `post_id_index` (`post_id`),
+  KEY `element_id_index` (`element_id`),
+  KEY `campaign_id_index` (`campaign_id`),
+  KEY `user_id_index` (`user_id`),
+  KEY `user_ip_index` (`user_ip`),
+  KEY `status_index` (`status`),
+  KEY `is_read_index` (`is_read`),
+  KEY `created_at_gmt_index` (`created_at_gmt`),
+  KEY `updated_at_gmt_index` (`updated_at_gmt`),
+  KEY `created_at_index` (`created_at`),
+  KEY `updated_at_index` (`updated_at`),
+  KEY `referer_index` (`referer`(191)),
+  KEY `referer_title_index` (`referer_title`(191))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_e_submissions`
+--
+
+LOCK TABLES `wp_e_submissions` WRITE;
+/*!40000 ALTER TABLE `wp_e_submissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wp_e_submissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_e_submissions_actions_log`
+--
+
+DROP TABLE IF EXISTS `wp_e_submissions_actions_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_e_submissions_actions_log` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `submission_id` bigint(20) unsigned NOT NULL,
+  `action_name` varchar(60) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `action_label` varchar(60) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `log` text COLLATE utf8mb4_unicode_520_ci,
+  `created_at_gmt` datetime NOT NULL,
+  `updated_at_gmt` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `submission_id_index` (`submission_id`),
+  KEY `action_name_index` (`action_name`),
+  KEY `status_index` (`status`),
+  KEY `created_at_gmt_index` (`created_at_gmt`),
+  KEY `updated_at_gmt_index` (`updated_at_gmt`),
+  KEY `created_at_index` (`created_at`),
+  KEY `updated_at_index` (`updated_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_e_submissions_actions_log`
+--
+
+LOCK TABLES `wp_e_submissions_actions_log` WRITE;
+/*!40000 ALTER TABLE `wp_e_submissions_actions_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wp_e_submissions_actions_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_e_submissions_values`
+--
+
+DROP TABLE IF EXISTS `wp_e_submissions_values`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_e_submissions_values` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `submission_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `key` varchar(60) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `value` longtext COLLATE utf8mb4_unicode_520_ci,
+  PRIMARY KEY (`id`),
+  KEY `submission_id_index` (`submission_id`),
+  KEY `key_index` (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_e_submissions_values`
+--
+
+LOCK TABLES `wp_e_submissions_values` WRITE;
+/*!40000 ALTER TABLE `wp_e_submissions_values` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wp_e_submissions_values` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_learnpress_courses`
+--
+
+DROP TABLE IF EXISTS `wp_learnpress_courses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_learnpress_courses` (
+  `ID` bigint(20) unsigned NOT NULL,
+  `json` longtext COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `price_to_sort` float DEFAULT NULL,
+  `is_sale` int(1) DEFAULT '0',
+  `post_author` bigint(20) unsigned DEFAULT NULL,
+  `post_date_gmt` datetime DEFAULT NULL,
+  `post_content` longtext COLLATE utf8mb4_unicode_520_ci,
+  `post_title` text COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `post_status` varchar(20) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'publish',
+  `post_name` varchar(200) COLLATE utf8mb4_unicode_520_ci DEFAULT '',
+  `menu_order` int(11) DEFAULT '0',
+  `lang` varchar(20) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `post_title` (`post_title`(191)),
+  KEY `post_status` (`post_status`),
+  KEY `post_name` (`post_name`),
+  KEY `id_status` (`ID`,`post_status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_learnpress_courses`
+--
+
+LOCK TABLES `wp_learnpress_courses` WRITE;
+/*!40000 ALTER TABLE `wp_learnpress_courses` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wp_learnpress_courses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wp_learnpress_files`
+--
+
+DROP TABLE IF EXISTS `wp_learnpress_files`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `wp_learnpress_files` (
+  `file_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `file_name` varchar(191) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `file_type` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `item_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `item_type` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `method` varchar(10) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT 'upload',
+  `file_path` varchar(255) COLLATE utf8mb4_unicode_520_ci NOT NULL DEFAULT '',
+  `orders` int(4) NOT NULL DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`file_id`),
+  KEY `file_name` (`file_name`),
+  KEY `item_id` (`item_id`),
+  KEY `item_type` (`item_type`),
+  CONSTRAINT `wp_learnpress_files_chk_1` CHECK ((`method` in (_utf8mb4'upload',_utf8mb4'external')))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wp_learnpress_files`
+--
+
